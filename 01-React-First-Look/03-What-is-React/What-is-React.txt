@@ -1,0 +1,22 @@
+APA ITU REACT
+------------
+Menurut dokumentasi resmi:
+React adalah javascript library untuk membangun UI
+
+Menurut course dan lebih bermanfaat:
+React adalah sebuah javscript library yang sangat populer, deklaratif, berbasis komponen, state-driven untuk membangun UI yang dibuat oleh facebook
+
+Maksudnya?
+1. berbasis komponen = komponen dalam artian button, navbar input fields dan lain2 atau  disebut building block
+
+2. deklaratif = memberitau react seperti apa tampilan sebuah komponen dan pada akhirnya keseluruhan UI bedasarkan state saat ini
+              = react menggunakan "jsx" extension yang bisa menggabungkan javascrip dengan HTML dan CSS
+
+3. State-driven = react bereaksi dengan state changes dengan merender UI
+
+4. javscript library = pada dasarnya react hanyalah library walaupun kita menyebutnya framework dan alasanya adalah karna react sendiri sebenarnya hanyalah view layer
+- ada berberapa framework yang dibangun di atas react jadi framework yang menyertakan fungsi yang tidak dimiliki oleh react dan paling penting populer antara lain NEXT.js dan REMIX
+
+5. Sangat populer = banyak perusahaan besar menggunakan react dan akhirnya perusahaan kecil mengikuti jejak mereka yang menyebabkan permintaan kerja yang besar diseluruh dunia, kemuidan react punya komunitas yang aktif dan besar, dan menyebebkan third-party library berkembang dengan pesat disekitar react
+
+6. dibuat oleh facebook = 

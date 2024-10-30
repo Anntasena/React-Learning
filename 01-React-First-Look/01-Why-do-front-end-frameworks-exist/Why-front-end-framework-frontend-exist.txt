@@ -1,0 +1,37 @@
+MENGAPA FRONTEND FRAMEWORK SEPERTI REACT BENAR-BENAR BERADA DI TEMPAT PERTAMA?
+MENGAPA TIDAK MENGGUNAKAN VANILLA JAVASCRIPT UNTUK MEMBANGUN APLIKASI KITA?
+
+JAWABAN:
+
+Menyederhanakan Pengelolaan State: Framework seperti React dilengkapi dengan sistem pengelolaan state yang memungkinkan developer melacak dan memperbarui kondisi data (state) dalam aplikasi dengan mudah. Ini sangat membantu, terutama dalam aplikasi yang kompleks di mana ada banyak elemen yang saling berinteraksi.
+
+Efisiensi dan Kinerja yang Lebih Baik: React, misalnya, memiliki Virtual DOM yang memungkinkan update UI lebih efisien. Virtual DOM hanya memperbarui elemen yang perlu diubah, bukan seluruh halaman, yang dapat menghemat waktu dan meningkatkan performa aplikasi.
+
+Komunitas dan Ekosistem yang Luas: Framework populer seperti React memiliki ekosistem besar, lengkap dengan pustaka, alat bantu, serta komunitas yang aktif, yang dapat membantu mempercepat pengembangan aplikasi. Vanilla JavaScript tidak memiliki ekosistem yang terfokus dan terintegrasi seperti ini.
+
+PERBEDAAN SSR DAN CSR
+JAWABAN:
+
+SSR (Server-Side Rendering)
+
+Rendering di Server: Di SSR, halaman web di-render di server dan dikirim sebagai HTML lengkap ke browser, yang kemudian ditampilkan kepada pengguna.
+Keuntungan SEO: SSR lebih baik untuk SEO karena konten sudah ada di HTML saat halaman dimuat, membuatnya lebih mudah diindeks oleh mesin pencari.
+Waktu Load Awal Lebih Lambat: Karena server memerlukan waktu untuk merender HTML, waktu load pertama sedikit lebih lambat dibanding CSR, tetapi pengalaman pengguna yang lebih cepat untuk halaman berikutnya.
+CSR (Client-Side Rendering)
+
+Rendering di Browser: Di CSR, halaman awal yang dikirim oleh server hanya mengandung HTML dasar dan JavaScript. Browser kemudian menjalankan JavaScript untuk membangun konten di sisi klien.
+SPA (Single Page Application): CSR sering digunakan untuk SPA yang memungkinkan pengguna untuk berinteraksi tanpa memuat ulang halaman, mirip seperti aplikasi mobile.
+Waktu Load Awal Lebih Cepat: Waktu load awal mungkin lebih lambat dibanding SSR, tetapi interaksi selanjutnya terasa lebih cepat karena halaman sudah ada di browser.
+SINGLE PAGE APPLICATION DENGAN JAVASCRIPT VANILLA?
+JAWABAN:
+
+Pengelolaan UI yang kompleks dengan Vanilla JavaScript membutuhkan lebih banyak waktu dan kode, terutama ketika berhadapan dengan elemen yang dinamis dan sering berubah. Dengan SPA berbasis framework seperti React, Vue, atau Angular, developer tidak perlu membuat logika yang kompleks untuk memperbarui UI setiap kali data berubah.
+
+MENGAPA SANGAT SULIT MENJAGA UI YANG SINKRON DENGAN DATA MENGGUNAKAN VANILLA JAVASCRIPT?
+JAWABAN:
+
+Manajemen State yang Kompleks: Dalam aplikasi dengan banyak komponen, menjaga agar data tetap konsisten di seluruh bagian UI menggunakan Vanilla JavaScript memerlukan logika yang rumit, karena tidak ada sistem yang bawaan untuk melacak perubahan state di seluruh aplikasi.
+
+DOM Manipulation yang Berat: Setiap perubahan pada data sering kali harus disertai dengan manipulasi DOM secara manual, yang dapat mengurangi performa dan meningkatkan kompleksitas kode.
+
+Tidak Ada Pemisahan Tanggung Jawab yang Jelas: Vanilla JavaScript tidak memiliki pola atau sistem modular bawaan, sehingga aliran data bisa menjadi berantakan, terutama dalam aplikasi yang kompleks.
