@@ -1,0 +1,32 @@
+2 OPSI SAAT SETTING REACT PROJEK
+-----------------------------------------
+mengunakan TOOL : 
+    1. Create-react-app
+        > Starter kit yang lengkap untuk aplikasi react
+        > Semua development tool umum sudah dikonfiturasikan diluar khusus untuk react seperti: webpack server, module bundling, dan development tools seperti ESlint, prettier, babel, dan lain lain
+        > Sangat hebat tetapi karna react dikembangkan bertahun tahun lalu, akhirnya development tool yang di konfigurasikan menjadi teknologi yang lambat dan agak ketinggalan zaman khususnya webpack bundler
+        > Tim dibalik create-react-app telah berhenti berinovasi
+        > Di REKOMENDASIKAN untuk TIDAK menggunakan create-react-app untuk real world project
+
+
+    2. Vite
+        > Modern build tool yang berisi setting template untuk react aplikasi
+        > Saat mengunakan vite, kita perlu mengatur secara manual development tool
+        > Sangat cepat untuk refresh page saat kode berubah yang disebut hot module replacement (HMR)
+        > Gunakan vite saat MEMBANGUN real worl project apps
+
+
+
+BAGAIMANA TENTANG REACT FRAMEWORKS?
+-----------------------------------------
+
+> Dalam websitenya "react.dev" tim pengembang react menyarankan untuk menggunakan frameworks seperti NEXT dan REMIX
+
+> apa itu react frameworks?
+react frameworks adalah frameworks yang dibangun di atas sebuat react library dan akan membuatnya lebih mudah untuk membuat aplikasi dibandingkan hanya dengan menggunakan react vanilla
+
+> Banyak orang yang berfikir bahwa menggunakan react frameworks bukanlah ide yang baik dan tidak selalu diperlukan
+
+> Menggunakan react frameworks akan masuk akal jika membangun website yang sebenarnya, bukan untuk belajar!!
+
+> Dan sebelum menggunakan NEXT / REMIX kita perlu belajar vanilla react terlebih dahulu
