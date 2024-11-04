@@ -1,0 +1,19 @@
+WHAT IS JSX?
+------------------------
+- JSX adalah sintaks deklaratif yang kita gunakan untuk mendeskripsikan seperti apa komponen itu dan bagaiman cara kerjanya bedasarkan data dan logic
+
+- Yang berarti setiap komponen harus mereturn satu blok JSX yang kemudian akan digunakan react untuk me-render komponen pada UI
+
+- JSX adalah kepanjangan dari Javascript, yang membungkinkan kita menggabungkan bagian dari html, css dan Javascript dalam satu blok kode
+
+- Sebenarnya kita bisa menggunakan react tanpa JSX sama sekali, karna JSX hanyalah extension yang setiap kodenya di terjemahkan melalui babel
+
+
+JSX IS DECLARATIVE?
+------------------------
+- Imparatif ? saat kita membuat UI dengan vanilla javascript secara default kita menggunakan pendekatan imparatif yang berarti kita memilih elemen secara manual, melintasi DOM, dan melampirkan event handler ke elemen kemudian setiap terjadi sesuatu di aplikasi setiap klik pada tombol, kami memberikan petunjuk kepada browser cara mengubah elemen jempol tersebut hingga mencapai UI terbaru yng diinginkan
+JADI...pada dasarnya kita memberi tahu browser cara melakukan sesuatu, namun melakukan ini dalam aplikasi yang kompleks sama sekali tidak memungkinkan karna semua alasan yang kita pelajari
+
+- Declarative ? pendekatan deklaratif hanya menggambarkan seperti apa tampilan UI setiap saat, selalu bedasarkan data saat ini yang ada dalam komponen dan kita akan segera mengetahui bahwa data adalah props dan state
+- React adalah abstaksi besar dari DOM, sehingga kita para pengembang tidak perlu menyentuh DOM secara langsung. sebaliknya, kita menganggap UI sebagai cerminan dari data saat ini dan membiarkan react secara otomatis menyingkornkan UI dengan data tersebut
+JADI... maksudnya kita ingin seperti apa bukan mencapainya selangkah demi langkah

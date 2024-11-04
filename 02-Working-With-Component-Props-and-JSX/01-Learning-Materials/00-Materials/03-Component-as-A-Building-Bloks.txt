@@ -1,0 +1,10 @@
+KOMPONENT AS A BUILDING BLOK
+-------------------------------------
+Jadi komponen adalah konsep yang paling mendasar dari react, hanya karna react pada kenyataanya seluruhnya terbuat dari komponen
+
+KOMPONEN:
+- Aplikasi react seluruhnya terbuat dari komponen
+- komponen adalah building blok dari react
+- komponen sebagai bagian dari UI yang setiap komponennya mempunyai data, logika, dan tampilan (bagaimana ia bekerja dan terlihat)
+- UI yang kompleks seperti ini dengan membuat berberapa komponen, dan kemudian menggabungkan komponen-komponennya tersebut seperti potongan lego
+- Komponen dapat digunakan kembali, dapat ditempatkan di komponen lain
