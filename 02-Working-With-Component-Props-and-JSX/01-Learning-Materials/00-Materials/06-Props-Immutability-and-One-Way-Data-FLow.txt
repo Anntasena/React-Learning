@@ -1,0 +1,57 @@
+PROPS, IMMUTABILITY AND ONE WAY DATA FLOW
+------------------------------------------
+
+REVIEWING PROPS
+---------------
+- Kita menggunakan props di react untuk mengoper data dari komponen induk ke komponen anak, jadi pada dasarnya untuk meneruskan informasi ke pohon komponen
+
+- Props adalah tool yang paling penting untuk mengkonfigurasi komponen dan juga 
+
+- Dengan props kita bisa menyesuaikan komponen yang dapat kita gunakan untuk membuat komponen induk mengontrol bagaimana komponen turunannya akan terlihat dan bagaimana cara kerjanya
+
+- Jadi props sama dengan argumen yang diteruskan function di javascript vanilla
+
+- Apapun bisa di teruskan dalam props: single value, array, object, function, bahkan komponen lain
+
+PROPS ARE READ-ONLY!
+--------------------
+Komponen => data + logika => tampilan
+Data => props + state
+State => adalah data internal komponen yang dapat diperbaharui oleh logika komponen
+Props => adalah data  yang berasal dari komponen induk / luar komponen
+
+Jadi, komponen induklah yang memiliki data tersebut sehingga tidak dapat dimodifikasi oleh komponen anak, sebaliknya props hanya dapat diperbaharui oleh komponen induk itu sendiri
+--------------------------------------------
+|    KESIMPULAN: PROPS ITU IMMUTABILE       |
+--------------------------------------------
+
+Why props IMMUTABILE?
+- Props hanyalah sebuah object
+- Mengubah props akan berefek ke parent element yang menyebabkan side-effect
+- Komponen harus tetap ke pure function dalam props dan state
+- Mengindari bug yang susah ditemukan
+
+CONTOH:
+--------------------------------------------
+let x = 10
+
+function sum() {
+    x = 7
+    return <h1> Number {x} </h1>
+}
+--------------------------------------------
+
+
+ONE WAY DATA-FLOW
+-----------------
+One way data-flow berarti dalam react, data hanya bisa dilewatkan dari komponen induk ke komponen anak yang dapat terjadi dengan mengungakan "props"
+
+--------------------------------------------------------------------------------------
+|    KESIMPULAN: PROPS SATU ARAH ALIRAN DATA DARI PARENT KE CHILD / ATAS KE BAWAH    |
+--------------------------------------------------------------------------------------
+Trivia fact: framework ANGULAR menggunakan two way data-flow yang artinya bisa bolak balik 
+
+Tujuan ONE-WAY DATA-FLOW:
+- membuat aplikasi lebih mudah diprediksi dan mudah di mengerti
+- membuat aplikasi lebih mudah di debug
+- performa lebih baik

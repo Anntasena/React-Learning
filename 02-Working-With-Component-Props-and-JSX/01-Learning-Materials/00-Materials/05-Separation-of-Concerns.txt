@@ -1,0 +1,29 @@
+SEPARATION OF CONCERNS (SoC)
+---------------------------
+
+Dalam React, Separation of Concerns (SoC) adalah konsep penting yang memisahkan berbagai tanggung jawab aplikasi menjadi bagian-bagian kecil dan terisolasi.
+
+Dalam pengembangan web tradisional, Separation of Concerns sering diterapkan dengan membagi kode berdasarkan jenisnya, seperti HTML untuk struktur, CSS untuk styling, dan JavaScript untuk logika. Di React, pendekatannya sedikit berbeda:
+
+    1. Component-Based Structure
+    ----------------------------
+    Di React, aplikasi dipecah menjadi komponen-komponen kecil yang masing-masing bertanggung jawab untuk satu bagian UI. Setiap komponen biasanya memiliki logika, tampilan, dan styling yang terkait dalam satu file, yang bertujuan untuk mengisolasi tanggung jawab dan memudahkan perawatan serta penggunaan ulang komponen.
+
+    2. Pemisahan Berdasarkan Tanggung Jawab Komponen
+    ------------------------------------------------
+    - Presentational Components: Bertanggung jawab hanya untuk rendering UI berdasarkan props yang diberikan. Komponen ini tidak menyimpan data sendiri dan cenderung stateless.
+    - Container Components (Smart Components): Bertanggung jawab untuk logika dan manajemen state aplikasi. Container components sering kali berinteraksi dengan API atau store untuk mendapatkan data, kemudian meneruskannya ke presentational components sebagai props.
+
+    3. Separation of State Management
+    ---------------------------------
+    React memisahkan logika terkait state ke dalam hook seperti useState, useReducer, atau library eksternal seperti Redux untuk menjaga state global. Ini memungkinkan developer untuk memisahkan dan mengelola state secara terstruktur dan tidak menumpuk seluruh state pada satu komponen atau bagian aplikasi.
+
+    4. Custom Hooks
+    ---------------
+    Untuk memisahkan logika yang berhubungan dengan aspek tertentu dari aplikasi (misalnya, fetching data atau pengaturan event listener), React mendukung penggunaan custom hooks. Custom hooks adalah fungsi JavaScript yang mengisolasi logika aplikasi tertentu, memungkinkan penggunaan kembali kode dengan tetap memisahkan tanggung jawab.
+
+    5. CSS Modules atau Styled Components
+    -------------------------------------
+    Pemisahan styling juga dapat dilakukan dengan CSS Modules atau styled-components. CSS Modules memungkinkan styling untuk setiap komponen terisolasi, sementara styled-components menggabungkan styling ke dalam komponen React itu sendiri. Pendekatan ini memungkinkan styling terintegrasi dalam komponen tanpa mencampurkan logika aplikasi utama.
+
+Dengan konsep SoC di React, aplikasi lebih modular, mudah dirawat, dan dapat berkembang seiring waktu karena setiap komponen atau modul memiliki satu tanggung jawab utama, dan bagian-bagian ini dapat saling bekerja sama untuk membentuk aplikasi yang lebih besar.
