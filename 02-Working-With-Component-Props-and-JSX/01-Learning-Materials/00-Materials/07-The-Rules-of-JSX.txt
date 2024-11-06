@@ -1,0 +1,32 @@
+RULE OF JSX
+-----------
+
+Aturan umum JSX
+--------------- 
+1. JSX pada dasarnya bekerja seperti HTML, jadi ini memiliki sintaks yang sangat mirip
+2. Kita bisa masuk ke JS mode dengan "{}" kurung kurawal dimana markup tersebut berisi value seperti teks atau yang diharapkan
+3. Saat di JS mode kita dapat menempatkan javascript expression apapun yang menghasilkan value, contoh:
+    - refrensi variable
+    - membuat array atau object
+    - menggunakan method [].map()
+    - menggunakan ternary operator
+    - dan lain lain
+4. Yang tidak diperbolehkan adalah statement (if/else, for loop, switch)
+5. Sepotong kode JSX menhasilkan javascript expression, atau dapat dikatakan blok kode JSX sama dengan javascript expression
+    - kita dapat menempatkan bagian lain dari JSX ke dalam "{}"
+    - kita dapat menulis JSX dimana saja didalam sebuah komponen, contoh:
+        > in if/else statement
+        > assign variable
+        > pass into function
+6. Sebuah bagian dari JSX hanya memiliki satu element root, atau satu element induk
+
+PERBEDAAN ANTARA JSX DAN HTML BIASA
+-----------------------------------
+
+1. Di JSX ditulis className, sedangkan HTML class
+2. Semua tag butuh ditutup contoh:
+    - <img />
+    - <br />
+3. Semua event handler dan properti lainnya wajib camelCased, contoh:
+    - onClick
+    - onMouseOver
