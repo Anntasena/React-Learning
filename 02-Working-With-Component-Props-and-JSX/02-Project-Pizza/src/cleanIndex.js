@@ -47,16 +47,6 @@ const pizzaData = [
   },
 ];
 
-/*
-* --------------------------------------------
-? --------------------------------------------
-# --------------------------------------------
--> 2 peraturan membuat komponen as function
-1. Nama function harus dimulai dengan huruf besar
-2. function harus "return" berberapa "markup"
--> TIPS: nesting bukan berarti menulis function didalam function (jangan pernah lakukan itu direact)
-*/
-
 function App() {
   return (
     <React.Fragment className="container">
@@ -68,8 +58,6 @@ function App() {
 }
 
 function Header() {
-  // const style = { color: "red", fontSize: "48px", textTransform: "uppercase" };
-  // return <h1 style={style}>Fast React Pizza co.</h1>;
   return (
     <header className="header">
       <h1>Fast React Pizza co.</h1>
@@ -79,14 +67,12 @@ function Header() {
 
 function Menu() {
   const pizzas = pizzaData;
-  // const pizzas = [];
   const numPizzas = pizzas.length;
 
   return (
     <main className="menu">
       <h2>Our menu</h2>
 
-      {/* RENDERING LIST */}
       {numPizzas > 0 ? (
         <>
           <p>
@@ -96,8 +82,6 @@ function Menu() {
 
           <ul className="pizzas">
             {pizzas.map((pizza) => (
-              // <Pizza name={pizza.name} ingredients={pizza.ingredients} photoName={pizza.photoName} price={pizza.price}/>
-              // cara diatas bukan cara yang sering digunakan
               <Pizza pizzaObj={pizza} key={pizza.name} />
             ))}
           </ul>
@@ -105,29 +89,12 @@ function Menu() {
       ) : (
         <p>We're still working on our menu, Please comeback later :)</p>
       )}
-
-      {/* <Pizza
-        name="Pizza Spinaci"
-        ingredients="Tomato, mozarella, spinach, and ricotta cheese"
-        photoName="pizzas/spinaci.jpg"
-        price={10} // mengubah dari string ke number bisa dengan masuk ke JS mode lewat tanda "{}"
-      />
-
-      <Pizza
-        name="Pizza Funghi"
-        ingredients="Tomato, mushroom"
-        price={12}
-        photoName="pizzas/funghi.jpg"
-      /> */}
     </main>
   );
 }
 
-// Destructuring props
 function Pizza({ pizzaObj }) {
   console.log(pizzaObj);
-
-  // if (pizzaObj.soldOut) return null;
 
   return (
     <li className={`pizza ${pizzaObj.soldOut ? "sold-out" : ""}`}>
@@ -135,9 +102,6 @@ function Pizza({ pizzaObj }) {
       <div>
         <h3>{pizzaObj.name}</h3>
         <p>{pizzaObj.ingredients}</p>
-
-        {/* {pizzaObj.soldOut ? <span>SOLD OUT</span> : <span>pizzaObj.price</span>} */}
-
         <span>{pizzaObj.soldOut ? "SOLD OUT" : pizzaObj.price}</span>
       </div>
     </li>
@@ -151,14 +115,8 @@ function Footer() {
   const isOpen = hour >= openHour && hour < closeHour;
   console.log(isOpen);
 
-  // if (hour >= openHour && hour < closeHour) alert("we're currently open!");
-  // else alert("were close");
-
-  // if (!isOpen) return <p>close</p>;
-
   return (
     <footer className="footer">
-      {/* {new Date().toLocaleTimeString()} - We're currently open */}
       {isOpen ? (
         <Order ch={closeHour} oh={openHour} />
       ) : (
@@ -168,10 +126,8 @@ function Footer() {
       )}
     </footer>
   );
-  // return React.createElement("footer", null, "were currently open");
 }
 
-// Extracting JSX into a New component
 function Order({ ch, oh }) {
   return (
     <div className="order">
@@ -184,16 +140,9 @@ function Order({ ch, oh }) {
   );
 }
 
-// Render root react v18
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  // <React.StrictMode> = USE STRICT MODE IN REACT
-  // Sebenarnya strict mode bukanlah masalah besar, karna satu2nya hal yang dilakukan selama pengembangan adalah ia merender semua komponen 2x untuk menemukan bug
   <React.StrictMode>
     <App />
   </React.StrictMode>
 );
-
-// Reander root react berfore v18
-// import ReactDOM from "react-dom";
-// root.render(<App />);
