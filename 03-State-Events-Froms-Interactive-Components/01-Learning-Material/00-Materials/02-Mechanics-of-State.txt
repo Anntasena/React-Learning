@@ -1,0 +1,8 @@
+MEKANIK STATE DIREACT
+---------------------
+Di react kita tidak memanipulasi DOM secara langung ketika kita ingin memperbaharui tampilan komponen (REACT bersifat dekalrati bukan imperatif)
+
+Lalu bagaimana component mengupdate tampilannya?
+----
+React memperbaharui tampilan komponen dengan me-render ulang seluruh komponen tersebut setiap kali data yang mendasari berubah
+Re-rendering pada dasarnya berarti react memanggil ulang kembali komponennya

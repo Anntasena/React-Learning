@@ -1,0 +1,37 @@
+APA YANG PERLU KITA PELAJARI
+----------------------------
+State adalah konsep yang paling penting dalam react, jadi pada dasarnya berkisar pada state di react
+
+APA YANG PERLU DI PELAJARI DEVELOPER REACT TENTANG STATE?
+---------------------------------------------------------
+1. Apa sebenarnya state itu, apa fungsinya, dan mengapa kita membutuhkannya?
+2. Bagaimana kita perlu mempelajari dan menggunakan state dalam praktiknya dengan menggunakan:
+    - useState
+    - useReducer
+    - Context API
+    - Exteral tool (Redux)
+3. Memikirkan tentang mengunakan state
+    - kapan harus menggunakan state
+    - dimana state seharusnya digunakan
+    - tipe state apa yang harus digunakan
+
+APA ITU STATE??
+---------------
+- State pada dasarnya adalah data yang dapat disimpan oleh sebuah kompenen dari waktu ke waktu, dan biasanya digunakan untuk informasi yang perlu diingat oleh komponen selama lifecycle
+
+- State juga bisa dianggap sebagai "component memory"
+
+- Contoh state dapat berupa hal2 seperti:
+    -> Jumlah notifikasi
+    -> Text dalam kolom input
+    -> Active tab pada komponen tab
+    -> [Kompleks] keranjang belanja
+
+- State variable / "piece of state" hanyalah satu variable aktual dalam komponen yang dapat kita definisikan dalam kode kita
+
+- Memperbaharui state akan memicu react untuk me-render ulang komponen
+
+- SINGKATNYA state memungkinkan pengembang untuk melakukan 2 hal penting
+    1. State membantu kita Memperbaharui tampilan kompenen dengan merender ulang komponen
+    2. State memungkinkan pengembang untuk mempertahankan variable lokal diantara berberapa render dan render ulang
+  Jadi State hanyalah sebuah tool, dan ini adalah alat yang powerful yang dimiliki react
