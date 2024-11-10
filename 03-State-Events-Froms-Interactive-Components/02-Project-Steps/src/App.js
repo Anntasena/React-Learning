@@ -7,6 +7,15 @@ const messages = [
 ];
 
 export default function App() {
+  return (
+    <div>
+      <Steps />
+      <Steps />
+    </div>
+  );
+}
+
+function Steps() {
   //= Style
   const btnColor = { backgroundColor: "#7950f2", color: "#fff" };
 
@@ -32,7 +41,7 @@ export default function App() {
   };
 
   return (
-    <>
+    <div>
       <button className="close" onClick={() => setIsOpen((open) => !open)}>
         &times;
       </button>
@@ -60,6 +69,6 @@ export default function App() {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }

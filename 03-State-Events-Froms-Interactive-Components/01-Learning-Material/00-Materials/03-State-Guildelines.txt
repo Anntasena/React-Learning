@@ -1,0 +1,32 @@
+PANDUAN STATE
+-------------
+
+One component, one state
+------------------------
+Setiap komponen benar2 memiliki dan mengelola keadaannya sendiri, meskipun kita merender komponen yang sama berberapa kali pada satu halaman, setiap instance komponen akan beroprasi secara independen dari semua komponen lainnya. Jadi jika kita mengubah status di sebuah komponen itu tidak akan mempengaruhi komponen lainnya
+
+UI as a function of state
+-------------------------
+-> UI = function(state) => maksudnya seluruh UI selalu merupakan representasi dari semua status saat ini dalam semua kompenen
+
+-> React pada dasarnya adalah tentang mengubah state dari waktu ke waktu dan tentu saja juga menampilkan state tersebut dengan benar setiap saat
+
+-> Dengan state kita sekarang meliahat UI sebagai cerminan data yang berubah dari waktu ke waktu dan seperti yang anda ketahui sekarang kita menggabambarkan refleksi data tersebut menggunakan state, event handler dan JSX
+
+In practical term
+-----------------
+
+Panduan praktis tentang state
+    1. Kita harus membuat variable state baru untuk data apa pun yang harus dilacak oleh kompenen dari waktu ke waktu dan cara termudah untuk mengetahuinya adalah dengan memikirkan variable yang perlu diubah pada suatu saat di masa depan
+    di Vanilla JS kita harus membuat let variable, [] atau {} di react kita menggunakan STATE
+    
+    2. Kapanpun kita ingin sesuatu dalam kompenen menajadi dinamis, buatlah state yang terkait dengan "sesuatu" tersebut, lalu perbaharui state ketika "sesuatu" tersebut berubah (dengan kata lain Dinamis)
+
+    3. Kapanpun kita ingin mengubah tampilan kompenen, atau data yang ditampilkan, cukup perbaharui statusnya, yang biasa kita lakukan di dalam function event handler
+
+    4. Ketika kita benar2 membangun kompenen, akan sangat berguna untuk selalu membayangkan tampilan kompenen sehingga kompenen yang terender dilayar sebagai cerminan dari keadaan yang berubah dan berkembang dari waktu ke waktu
+
+    5. Kesalahan pemula yaitu menggunakan state untuk setiap variable yang kita perlukan dalam sebuah kompenen, padahal itu tidak perlu, jadi jangan gunakan state untuk variable yang seharusnya tidak memicu render ulang karna itu akan mennyebabkan render ulang yang tidak perlu yang dapat menyebabkan masalah kinerha / perforance
+
+
+TIPS : MENGUASAI STATE ADALAH BAGIAN TERSULIT DARI MEMPELAJARI React
