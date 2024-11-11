@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+//$ Date Counter Challange
+
 export default function App() {
   return (
     <div className="centered-container">
@@ -21,11 +23,9 @@ function Counter() {
     setCount((c) => c - step);
   }
 
-  function incStep() {
-    setStep((c) => c + 1);
-  }
-  function decStep() {
-    setStep((c) => c - 1);
+  function reset() {
+    setCount(1);
+    setStep(1);
   }
 
   const date = new Date("august 21 1998");
@@ -33,17 +33,31 @@ function Counter() {
 
   return (
     <>
+      {/* //=========================== */}
       <div className="counter pad--bot">
-        <button onClick={decStep}>-</button>
-        <span>Step : {step}</span>
-        <button onClick={incStep}>+</button>
+        <input
+          type="range"
+          value={step}
+          min="0"
+          max="10"
+          onChange={(e) => setStep(Number(e.target.value))}
+        ></input>
+        <span>{step}</span>
       </div>
+      {/* //=========================== */}
       <div className="counter pad--bot">
         <button onClick={decCount}>-</button>
-        <span>Count : {count}</span>
+        <span>
+          <input
+            value={count}
+            type="number"
+            onChange={(e) => setCount(Number(e.target.value))}
+          ></input>
+        </span>
         <button onClick={incCount}>+</button>
       </div>
 
+      {/* //=========================== */}
       <p className="counter">
         <span>
           {count === 0
@@ -54,6 +68,13 @@ function Counter() {
         </span>
         <span>{date.toDateString()}</span>
       </p>
+
+      {/* //=========================== */}
+      <div className="counter pad--bot">
+        {count !== 1 || step !== 1 ? (
+          <button onClick={reset}>Reset</button>
+        ) : null}
+      </div>
     </>
   );
 }

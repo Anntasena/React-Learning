@@ -1,0 +1,13 @@
+STATE VS PROPS
+--------------
+
+State = internal data yang dimiliki oleh komponen
+      = state itu komponen memory
+      = state dapat diperharui oleh komponen itu sendiri
+      = mengupdate state akan menyebabkan komponen tersebut dirender ulang
+      = digunakan untuk membuat komponen menjadi interaktif
+Props = external data yang dimiliki oleh komponen induk
+      = props mirip dengan function parameter
+      = props hanya bisa dibaca (read only)
+      = saat komponen child menerima props baru yang diupdate, akan menyebabkan komponen tersebut dirender ulang
+      = props digunakan untuk memberikan kemampuan kepada komponen induk untuk mengkonfigurasi komponen child ("settings")
