@@ -1,0 +1,36 @@
+FUNDAMENTAL OF STATE MANAGEMENT
+-------------------------------
+
+What is state management?
+----
+State management = adalah penentuan kapan kita perlu membuat state baru, jenis state apa yang kita perlukan, dimana menempatkan setiap state di dalam basis kode dan juga bagaiman semua data flow mengalair melalui App
+
+Type of State: local VS global
+----
+
+[local]
+--
+1. -> state yang hanya dibutuhkan pada satu komponen atau berberapa komponen berbeda seperti child / sibling
+2. -> hanya componen ynag di tentukan dan child komponen yang memiliki akses (dengan passing via props)
+3. -> mulailah selalu dengan state local dan pindahkan ke global jika membutuhkannya
+1. -> 
+
+[global]
+--
+1. -> state yang digunakan oleh banyak komponen 
+2. -> state tersebut akan dapat diakses oleh setiap komponen diselurh aplikasi (share state)
+3. -> dalam praktek kita bisa mengunakan "context API / Redux"
+
+State: when and where?
+----
+
+[when]
+--
+1. Perubahan Dinamis: Jika Anda memiliki data yang berubah seiring waktu dan perlu memperbarui tampilan atau logika komponen sesuai perubahan itu, gunakan state. Contohnya adalah input form, hitungan jumlah klik, atau daftar item yang dapat diperbarui.
+2. Interaksi Pengguna: Jika Anda perlu melacak interaksi pengguna, seperti ketika tombol diklik atau input diisi, maka state akan berguna untuk merepresentasikan hasil dari interaksi tersebut.
+3. Data yang Dimiliki Sendiri (Local State): Jika data hanya relevan untuk komponen tertentu dan tidak perlu dibagikan dengan komponen lain, simpan di state lokal komponen tersebut.
+
+[where]
+--
+1. Di Dalam Komponen: Biasanya, state didefinisikan menggunakan useState di dalam komponen tempat state tersebut akan digunakan. Dengan ini, Anda bisa memanfaatkan state sebagai data lokal dan memperbaruinya sesuai kebutuhan komponen.
+2. Di Komponen yang Lebih Tinggi: Jika data perlu dibagikan atau digunakan oleh banyak komponen, state bisa diletakkan di komponen yang lebih tinggi, kemudian diturunkan melalui props ke komponen anak yang membutuhkannya.

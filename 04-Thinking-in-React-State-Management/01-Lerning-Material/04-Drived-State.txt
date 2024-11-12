@@ -1,0 +1,10 @@
+DRIVED STATE
+------------
+
+Derived state dalam React adalah kondisi di mana nilai state dihitung atau tergantung pada state lain atau props. Sebagai contoh, Anda bisa memiliki state yang menghitung nilai lain berdasarkan state atau props yang ada, sehingga tidak perlu menyimpan nilai yang sudah dapat dihitung secara langsung dari data lain.
+
+Kapan Menggunakan Derived State?
+----
+1. Penghitungan Nilai Berdasarkan State atau Props: Saat nilai state atau props digunakan untuk menghitung sesuatu, misalnya jumlah total, filter data, atau perhitungan lainnya.
+
+2. Menghindari Duplikasi Data: Jika suatu nilai sudah dapat dihitung dari data yang ada, lebih baik tidak menyimpannya secara terpisah di state untuk menghindari duplikasi dan ketidaksesuaian data.

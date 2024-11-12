@@ -1,0 +1,50 @@
+THINKING LIKE REACT IS A CORE SKILL
+-----------------------------------
+
+Keterampilan yang harus dimiliki saat menggunakan react (react mindset)
+1. Cara Menggunakan React API
+    - React API adalah sekumpulan fungsi dan fitur bawaan yang disediakan oleh React, seperti useState, useEffect, dan lainnya, yang memungkinkan kita membangun dan mengelola komponen, state, dan lifecycle dalam aplikasi.
+    - Kemampuan untuk memahami dan menggunakan React API sangat penting, karena sebagian besar tugas dalam pengembangan React menggunakan fungsi-fungsi ini untuk mengelola UI dan data.
+    - Saat menggunakan React API, penting untuk memahami bagaimana setiap API berfungsi dan kapan harus menggunakannya agar aplikasi lebih efisien.
+
+2. Thinking in React (Berpikir dalam Kerangka React)
+    1. React mindeset:
+    - Ini adalah pola pikir yang berfokus pada cara React mengelola data dan UI secara modular. Dengan pola pikir ini, kita akan fokus pada pembuatan komponen-komponen terpisah, pemrosesan data melalui props dan state, serta pembaruan UI berdasarkan perubahan state.
+
+    2. Memikirkan Komponen, State, Aliran Data, dan Efek:
+    - Dalam React, kita membagi aplikasi menjadi beberapa komponen yang bertanggung jawab atas bagian UI tertentu. Setiap komponen memiliki state (jika diperlukan) dan menerima data dari komponen lain melalui props.
+    - Mengelola state, data flow, dan effect (dampak dari perubahan pada state) dengan baik sangat penting. Ini berarti kita perlu memahami bagaimana data mengalir dari komponen induk ke anak, bagaimana mengelola state lokal di dalam komponen, dan cara memicu efek samping (misalnya, fetching data) dengan benar.
+    
+    3. Berpikir dalam “Mutasi State”, Bukan Mutasi Elemen:
+    - Salah satu prinsip React adalah menghindari langsung mengubah elemen DOM (atau elemen di layar) secara manual. Alih-alih, kita memanipulasi UI dengan mengubah state, dan React akan re-render elemen-elemen yang terkait dengan perubahan tersebut.
+    - Artinya, kita tidak memodifikasi elemen secara langsung seperti di jQuery atau JavaScript biasa. Sebaliknya, kita mengubah state (misalnya, dari setState atau useState), dan React akan mengatur perubahan elemen di UI secara otomatis berdasarkan perubahan state ini.
+
+
+THIKNING IN REACT AS A PROCESS
+------------------------------
+
+The thinking in react process:
+1. memecah UI menjadi berberapa komponen dan menentukan bagaiman komponen2 ini terkait satu sama lain, hingga membuat "components tree"
+2. membuat versi statis direact (tanpa state), ini sangat bagus karna dengan melakukan hal ini kita melakukan sebagian besar pengkodean di awal sebelum harus mengawatirkan state dan interktivitas
+-------------------------------------------------------------
+S T A T E  M A N A G E M E N T
+-------------------------------------------------------------
+3. Memikirkan state: 
+    - Kapan kita menggunakan state
+    - Tipe state apa yang digunakan: local vs global
+    - Dimana setiap bagian state kita di letakan
+4. Bagaiman data mengalir:
+    - One-way data flow
+    - Child-to-Parent communication
+    - Accessing Global state
+-------------------------------------------------------------
+
+Saat kita tau bagaimana "thinking in react" kita dapat menajawab:
+
+1. bagaiman cara memecah desain UI menjadi berberapa komponen
+2. bagaiman cara komponen benar2 dapat digunakan kembali
+3. bagaiman cara  mengumpulkan komponen2 dari UI pengguna dan digunakan kembali?
+4. bagian state apa yang diperlukan untuk interaktif sayng saya inginkan?
+5. dimana harus menempatkan setiap state ini? dengan kata lain komponen apa yang harusnya mempunyai bagian state 
+6. jenis state apa yang digunakan
+7. bagaimana membuat data flow melalui aplikasi
