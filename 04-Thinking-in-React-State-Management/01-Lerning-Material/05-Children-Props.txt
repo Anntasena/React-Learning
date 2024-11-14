@@ -1,0 +1,37 @@
+CHILDREN COMPONENT
+------------------
+
+children props di React sangat berguna untuk membuat komponen lebih fleksibel, karena memungkinkan Anda menyisipkan konten lain di dalam komponen yang sudah Anda buat. Setiap komponen di React menerima children secara otomatis, dan ini adalah properti yang mewakili apa pun yang Anda letakkan di antara tag pembuka dan penutup komponen tersebut.
+
+Contoh :
+--
+export default function App() {
+  return (
+    <div>
+      <Card />
+        <h2>Judul</h2>
+        <p>Deskripsi konten dalam card ini.</p>
+      </Card>
+    </div>
+  );
+}
+
+function Card({ children }) {
+  return <div className="card">{children}</div>;
+}
+
+Penjelasan:
+--
+Di sini, h2 dan p akan otomatis diteruskan sebagai children ke komponen Card. Ini membuat komponen lebih modular dan dapat digunakan kembali karena Anda tidak perlu menentukan setiap elemen konten di dalam Card—konten bisa dinamis sesuai kebutuhan.
+
+Keuntungan children Props
+-------------------------
+
+1. Fleksibilitas: 
+   Anda bisa mengisi komponen dengan konten apa pun tanpa perlu mengubah definisi komponennya.
+
+2. Reusabilitas:
+   Dengan children, komponen menjadi lebih serbaguna dan mudah digunakan kembali di berbagai tempat dalam aplikasi.
+
+3. Kode yang lebih bersih: 
+   Membuat komponen dengan children props menghindari kebutuhan untuk menuliskan banyak props atau mengkhususkan konten tiap komponen di dalam file komponen.
