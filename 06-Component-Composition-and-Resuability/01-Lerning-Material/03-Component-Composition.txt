@@ -1,0 +1,12 @@
+APA ITU COMPONENT COMPOSITION?
+------------------------------
+
+Component Composition dalam React adalah cara untuk menyusun komponen yang lebih kecil menjadi komponen yang lebih besar. Tujuannya adalah untuk membangun UI dengan memanfaatkan reusability (komponen yang bisa digunakan ulang) dan readability (kode yang lebih mudah dipahami).
+
+Ketimbang membuat satu komponen besar yang menangani semuanya, kita memecahnya menjadi komponen-komponen kecil dengan tanggung jawab spesifik, kemudian menyusunnya seperti potongan puzzle.
+
+Cara Kerja Component Composition:
+ 1. Komponen Induk (Parent): Komponen yang memegang struktur utama dan mengontrol komponen anak.
+ 2. Komponen Anak (Children): Komponen yang "disisipkan" ke dalam komponen induk menggunakan props atau special props seperti children.
+
+

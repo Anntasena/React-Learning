@@ -1,0 +1,88 @@
+COMPONENTS SIZE MATTERS (MELIHAT UKURAN KOMPONEN)
+-------------------------------------------------
+
+Mengkatagorikan dengan ukuran KOMPONEN
+
+level small
+===========
+ > Kemungkinan akan memiliki ratusan atau bahkan ribuan "mini-komponen"
+ > Membuat "codebase" menjadi sangat membingungkan untuk dinavigasi
+ > Membuat terlalu abstrak
+
+
+level balance (very recomended)
+===============================
+
+
+level huge
+==========
+ > Membuat komponen memiliki tanggung jawab yg banyak
+ > Menerima terlalu banyak "props" agar dapat berfungsi dengan baik
+ > Semakin susah untuk di "reuse"
+ > Memiliki complex code yang sulit untuk dimengerti
+
+
+ HOW TO SPLIT A UI INTO COMPONENTS
+ ---------------------------------
+ 4 KRITERIA UNTUK MEMECAH UI MENJADI KOMPONEN
+
+ 1. Logical seperation dari konten / layout
+ 2. Reusability
+ 3. Mempunyai tanggung jawab yang jelas
+ 4. Personal style
+
+ FRAMEWORK: KAPAN KITA HARUS MEMBUAT KOMPONEN BARU?
+ --------------------------------------------------
+✅ Saat bingung, mulai membuat dengan komponen yang besar, dan pecah komponen menjadi lebih kecil jika di perlukan
+
+
+Mengunakan 4 kriteria ini:
+
+ 1. Logical seperation dari konten / layout
+    -> Jika konten dan layout tidak cocok bisa membuat komponen baru
+
+
+ 2. Reusability
+    -> Apakah memungkinkan untuk membuat komponen yang dapat digunakan kembali?
+    -> Kamu hanya ingin atau perlu untuk menggunakan kembali komponen ini?
+    -> jika TIDAK, maka bisa membuat komponen baru
+
+ 3. Mempunyai tanggung jawab yang jelas
+    -> omponen melakukan banyak hal yang berbeda?
+    -> komponen terlalu banyak props?
+    -> Komponen mempunyai terlalu banyak piece of state atau effect?
+    -> Dalam kodenya membuat terlalu rumit dan membingungkan? 
+    -> jika IYA, maka bisa membuat komponen baru
+
+ 4. Personal style
+    -> Apakah kamu menyukai komponen yang kecil?
+    -> jika IYA, maka bisa membuat komponen baru
+
+
+SOME MORE GENERAL GUIDELINES
+----------------------------
+
+-> Membuat komponen baru akan menciptakan abstraksi baru. abstraksi memiliki bayaran karna abstraksi membutuhan banyak mental energix untuk memikirkan komponen yang berbeda dan beralih bolak-balik antar komponen. JADI... cobalah tidak membuat komponen baru terlalu dini jika kita dapat menghindarinya
+
+-> Membari nama komponen sesuai dengan apa yang dilakukannya atau di tampilkannya. jangan takut membuat nama yang panjang
+
+-> Jangan pernah mendeklarasikan komponen di dalam komponen
+
+-> Co-located komponen yang terkait di dalam file yang sama
+
+-> Wajar jika aplikasi memiliki komponen dengan berbagi ukuran, termasuk berberapa komponen yang sangat kecil dan berberapa komponen yang sangat besar
+
+
+ANY APP HAS COMPONENTS OF DIFFRENT SIZES AND Reusability
+--------------------------------------------------------
+
+level small 
+ -> Berberapa komponen kecil diperlukan
+ -> Sangat reusable
+ -> Very low complexity
+
+
+level huge
+ -> Berberapa app memiliki komponen yang besar
+ -> Seperti page COMPONENTS
+ -> ditujukan untuk tidak digunakan kembali 

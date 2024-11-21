@@ -1,0 +1,17 @@
+## COMPONENT CATEGORIES
+
+> Sebagian besar komponen akan secara alami (bukan memaksakan) masuk kedalam salah satu dari 3 katagori
+
+    1. Stateless / Presentational components
+        - No State
+        - Komponen yang menerima "props" sederhana dan hanya menyajikan saja
+        - Biasanya komponen kecil dan reusable
+
+    2. Stateful components
+        - Have state
+        - Masih memungkinkan reusable
+
+    3. Structural components
+        - "pages", "layout", atau "screens" di aplikasi
+        - Hasil dari komposisi antar kompoen kecil
+        - Bisa sangat besar dan tidak reusable (seringnya)
