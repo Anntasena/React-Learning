@@ -9,4 +9,42 @@ Cara Kerja Component Composition:
  1. Komponen Induk (Parent): Komponen yang memegang struktur utama dan mengontrol komponen anak.
  2. Komponen Anak (Children): Komponen yang "disisipkan" ke dalam komponen induk menggunakan props atau special props seperti children.
 
+KEUNTUNGAN MENGGUNAKAN COMPONENT COMPOSITION
+--------------------------------------------
+1. Reusability (Dapat Digunakan Ulang)
+Penjelasan: Komponen yang kecil dan modular dapat digunakan di berbagai tempat dalam aplikasi tanpa perlu menulis ulang kode.
+Contoh: Komponen Button dapat digunakan dalam berbagai formulir atau halaman hanya dengan memanggilnya dan menyesuaikan props.
 
+2. Readability (Lebih Mudah Dibaca)
+Penjelasan: Dengan memecah aplikasi menjadi komponen kecil, struktur kode menjadi lebih jelas dan mudah dipahami.
+Contoh: Alih-alih memiliki satu komponen besar yang menangani semuanya, Anda memiliki komponen seperti Navbar, Sidebar, dan Content yang masing-masing punya tanggung jawab sendiri.
+
+3. Separation of Concerns (Pemecahan Tanggung Jawab)
+Penjelasan: Setiap komponen hanya bertanggung jawab untuk satu tugas spesifik, sehingga memudahkan pengujian dan pengelolaan.
+Contoh: Komponen ProgramList hanya menangani daftar program, sementara ExerciseDetails menangani informasi latihan.
+
+4. Scalability (Lebih Mudah Dikembangkan)
+Penjelasan: Dengan struktur komponen yang baik, aplikasi lebih mudah dikembangkan seiring bertambahnya fitur.
+Contoh: Jika Anda menambahkan fitur baru seperti "Program Progress", cukup tambahkan komponen baru tanpa memengaruhi komponen lainnya.
+
+5. Maintainability (Lebih Mudah Dipelihara)
+Penjelasan: Komponen yang terpisah memudahkan untuk menemukan dan memperbaiki bug atau melakukan refactor pada kode tertentu tanpa merusak bagian lain.
+Contoh: Perubahan pada komponen Navbar tidak akan memengaruhi ExerciseList jika struktur komponen terisolasi dengan baik.
+
+6. Props and Children untuk Dinamisasi
+Penjelasan: Dengan menggunakan props atau children, komponen menjadi lebih fleksibel dan dapat menerima data dari luar tanpa harus diubah.
+
+7. Testing yang Lebih Mudah
+Penjelasan: Komponen kecil lebih mudah untuk diuji dibandingkan komponen besar dengan banyak tanggung jawab.
+Contoh: Anda bisa menguji Button secara terpisah untuk memastikan handler onClick-nya berfungsi tanpa memeriksa seluruh aplikasi.
+
+8. Kemudahan untuk Styling
+Penjelasan: Komponen kecil memungkinkan Anda untuk mengisolasi styling dengan lebih baik menggunakan pendekatan seperti CSS Modules atau Styled Components.
+Contoh: Anda bisa menerapkan gaya yang berbeda untuk komponen ProgramCard tanpa memengaruhi ExerciseCard.
+
+9. Mendukung Prinsip DRY (Don't Repeat Yourself)
+Penjelasan: Dengan memecah aplikasi menjadi komponen kecil, Anda menghindari penulisan kode yang berulang-ulang.
+Contoh: Jika banyak halaman memiliki tombol "Add Program", cukup buat satu komponen Button yang dapat digunakan di semua halaman.
+
+10. Kemampuan untuk Menyusun Hierarki UI
+Penjelasan: Anda dapat membuat hierarki UI dengan cara menyusun komponen kecil menjadi bagian dari komponen besar.

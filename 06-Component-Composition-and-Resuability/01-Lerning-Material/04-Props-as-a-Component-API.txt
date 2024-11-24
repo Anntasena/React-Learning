@@ -1,0 +1,21 @@
+PROPS AS A COMPONENT API
+------------------------
+
+Saat kita mulai mengerjakan komponen kita harus masuk ke dalam pola pikir bahwa komponen apapun selalu dibuat oleh seseorang (developer) dan selalu di konsumsi oleh seseorang (konsumen)
+
+> Creator adalah orang yang membuat komponen dan menentukan "props" apa yang bisa diterima komponen tersebut
+> Consumer adalah orang yang menggunakan komponen di suatu tempat dalam aplikasi dengan menentukan value untuk "props"
+
+Alasan pemisah antara Creator dan Consumer, bahkan jika kita hanya bekerja sendiri adalah karena kita memiliki pola pikir seperti menganggap komponen "props" sebagai API public dari komponen tersebut
+
+
+> Terlalu banyak props yang ditempatkan dalam komponen 
+    - membuatnya terlalu sulit digunakan oleh konsumen
+    - mendambah kompleksitas
+> Terlalu sedikit props
+    - membuatnya tidak flexible
+    - mungkin menjadi kurang bermanfaat 
+
+[TIPS]
+-> Jadi saat kita memutuskan API pada komponen cobalah untuk tidak terlalu banyak atau sedikit (Seimbang).
+-> Jika benar2 butuh banyak props, pastikan setidaknya memberikan berberapa "default value"
