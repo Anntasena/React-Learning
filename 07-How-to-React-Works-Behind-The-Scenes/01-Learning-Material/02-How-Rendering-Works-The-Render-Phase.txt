@@ -1,0 +1,50 @@
+HOW COMPONENT ARE DISPLAY ON THE SCREEN
+---------------------------------------
+
+1. Panggilan Component
+2. Membuat Virtual DOM
+3. ReactDOM dan Rendering   
+4. Re-rendering (Jika State/Props Berubah)
+
+Diagram Cara Kerja:
+---
+1. Component → Dipanggil → Menghasilkan React Element.
+2. Virtual DOM → Dibuat dari React Element.
+3. ReactDOM → Mengubah Virtual DOM ke DOM asli.
+4. Update (Jika Ada) → React membandingkan Virtual DOM lama dan baru, lalu memperbarui DOM asli secara efisien.
+
+
+HOW RENDERS ARE TRIGGERING
+--------------------------
+
+Dua Situasi yang memicu render: 
+----
+1. Initial render
+2. State telah diupdate (re-render)
+
+
+The Mechanics of State in React
+-------------------------------
+
+1. Deklarasi State => State dideklarasikan menggunakan useState (untuk functional components) atau this.state (untuk class components).
+
+2. Penyimpanan State => Initial State: React menyimpan nilai awal di tempat khusus untuk setiap instance component.
+                     => Ketika useState(0) dipanggil, React membuat internal storage untuk menyimpan 0 (nilai awal).
+
+3. Mengupdate State => State diupdate dengan setter function
+
+4. Re-render Component => React memanggil ulang fungsi component dengan state yang baru.
+                       => State terbaru ini disediakan pada setiap render ulang.
+                       => Hanya bagian UI yang terpengaruh oleh perubahan state yang akan di-update (melalui Virtual DOM diffing).
+
+5. Batasi Perubahan (Immutable State) => State bersifat immutable, artinya tidak boleh diubah secara langsung. Anda harus selalu membuat salinan baru ketika memodifikasi state.
+
+6. Asynchronous Updates => State updates tidak langsung mengubah nilai state.
+                        => React menunggu hingga event handler selesai sebelum memproses perubahan (batching updates).
+                        => Jika Anda memeriksa nilai state langsung setelah setState, nilai lama masih terlihat.
+
+7. Efisiensi dengan Batching => React mengelompokkan beberapa perubahan state dalam satu render untuk efisiensi.
+                             => Semua setState dalam satu event loop diproses bersama sebelum render ulang.
+
+8. Hubungan dengan Props => Props adalah data yang diterima dari parent, sedangkan state adalah data lokal yang diatur dalam component.
+                         => Saat state berubah, component yang memiliki state akan di-render ulang, tapi perubahan props memengaruhi anaknya.

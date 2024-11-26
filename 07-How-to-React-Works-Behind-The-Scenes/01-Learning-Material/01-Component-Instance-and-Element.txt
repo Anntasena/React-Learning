@@ -1,0 +1,22 @@
+COMPONENT INSTANCE AND ELEMENTS
+-------------------------------
+
+Component VS Instance VS Elements
+
+> Component = menggambarkan bagian dari UI
+            = komponen hanyalah sebuah function JS biasa tetapi "me-return" element react
+            
+> Component Instance = instance digunakan ketika kita sudah menggunakan komponen
+                     = instance merupakan menifestasi dari komponen
+                     = instance adalah bagian kecil dari komponen yang digunakan kembali
+                     = instance memiliki state sendiri dan props sendiri
+
+> React Element = objek yang mendeskripsikan elemen UI.
+                = objek JavaScript biasa yang dibuat oleh React.createElement.
+
+RINGKASAN
+---------
+
+Component: Definisi atau blueprint.
+React Element: Representasi deskriptif (JavaScript object) dari UI berdasarkan blueprint.
+Component Instance: Versi aktif yang dirender di aplikasi dengan state/props.

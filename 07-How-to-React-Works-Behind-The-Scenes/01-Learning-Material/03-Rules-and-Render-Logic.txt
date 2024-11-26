@@ -1,0 +1,53 @@
+TWO TYPE OF LOGIC IN REACT COMPONENT
+------------------------------------
+
+1. Render logic 
+----
+
+
+
+
+2. Event handler function
+----
+
+
+RULES OF RENDER LOGIC
+---------------------
+
+1. Pure Function Rule
+Komponen React harus murni (pure function):
+-> Menghasilkan output yang hanya bergantung pada props dan state.
+-> Tidak boleh mengubah nilai props, state, atau variabel global secara langsung.
+
+2. Conditional Rendering
+Gunakan ekspresi logis untuk menentukan elemen mana yang dirender.
+
+3. Avoid Side Effects in Render
+-> Tidak boleh ada efek samping dalam fungsi render (seperti API calls atau manipulasi DOM langsung).
+-> Gunakan useEffect untuk efek samping.
+
+4. Return Single Root Element
+Render hanya boleh mengembalikan satu elemen root:
+-> Gunakan fragment (<>) jika butuh membungkus banyak elemen tanpa div tambahan.
+
+5. Keep Logic Simple
+-> Hindari logika kompleks dalam JSX.
+-> Ekstrak logika ke fungsi helper untuk meningkatkan keterbacaan.
+
+6. Avoid Mutating Props or State
+-> Jangan ubah state atau props secara langsung.
+-> Selalu gunakan metode seperti setState untuk mengelola perubahan.
+
+7. Render Lists with Keys
+Saat merender daftar elemen, gunakan atribut key untuk membantu React melacak perubahan.
+
+8. Avoid Inline Object Definitions
+-> Jangan mendefinisikan objek atau fungsi secara langsung di JSX karena menyebabkan render ulang yang tidak perlu.
+
+9. Don't Block Render
+-> Hindari operasi berat (misalnya perhitungan besar) dalam fungsi render.
+-> Gunakan memoization dengan useMemo atau React.memo
+
+Intinya:
+- Buat komponen yang sederhana, murni, dan efisien.
+- Pindahkan logika yang kompleks atau efek samping ke luar fungsi render.
