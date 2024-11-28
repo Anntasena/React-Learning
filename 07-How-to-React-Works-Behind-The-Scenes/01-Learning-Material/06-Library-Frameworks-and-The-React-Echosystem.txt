@@ -1,0 +1,83 @@
+LIBRARIES VS FRAMEWORK AND REACT ECHOSYSTEM
+-------------------------------------------
+
+
+01. FIRST, AN ANALOGY
+---------------------
+1. All in one kit
+    > seperti mie instan, didalamnya sudah lengkap dengan bumbu dan toppingnya
+
+2. Seperate ingredients 
+    > seperti mie yang dibuat sendiri, memberikan flexibilitas penuh bahan apa yang kita gunakan, tetapi memerlukan banyak keputusan untuk menyatukannya
+
+
+02. FRAMEWORK VS LIBRARY
+------------------------
+1. Framework
+    > Menyediakan kerangka kerja lengkap dengan aturan dan struktur yang harus diikuti.
+    > "Inversion of Control": Framework memanggil kode Anda (kode Anda dipasangkan dengan aturan framework).
+    > Contoh: Angular, Django, Spring.
+
+2. Library
+    > Kumpulan fungsi/utilitas yang Anda panggil sesuai kebutuhan.
+    > Anda mengendalikan bagaimana dan kapan library digunakan.
+    > Contoh: React, Lodash, Axios.
+
+03. REACT 3RD-PARTY LIBRARY ECHOSYSTEM
+--------------------------------------
+
+1. Routing (SPAs)
+    > Mengatur navigasi tanpa reload halaman.
+    > Contoh: React Router.
+
+2. HTTP request
+    > Mengelola permintaan API.
+    > Contoh: Axios, Fetch.
+    
+3. Remote state management
+    > Mengelola data yang disimpan di server atau API eksternal.
+    > Contoh: React Query, SWR.
+
+4. Global state management
+    > Menyediakan penyimpanan state global di aplikasi.
+    > Contoh: Redux, MobX, Zustand.
+
+5. Styling
+    > Menangani CSS untuk komponen.
+    > Contoh: Styled-Components, Emotion, Tailwind CSS.
+
+6. Form management
+    > Mengelola input form secara kompleks.
+    > Contoh: Formik, React Hook Form.
+
+7. Animation/transition
+    > Menambahkan animasi ke elemen.
+    > Contoh: Framer Motion, React Spring.
+
+8. UI components
+    > Komponen antarmuka siap pakai.
+    > Contoh: Material-UI, Ant Design, Chakra UI.
+
+04. FRAMEWORKS BUILT ON TOP OF REACT
+------------------------------------
+1. Framework Secara Umum:
+    > Framework berbasis React (seperti Next.js, Remix, Gatsby) memperluas kemampuan React dengan menambahkan fitur seperti SSR (Server-Side Rendering), routing otomatis, dan optimasi bawaan.
+    > Mereka bertujuan menyelesaikan masalah yang sering ditemui di aplikasi besar seperti pengelolaan performa, SEO, dan deployment.
+
+2. Perbedaan Vanilla React vs React dengan Framework:
+    > Vanilla React:
+        - Anda mengatur semua aspek sendiri (routing, state, SSR).
+        - Fleksibel, tetapi lebih manual.
+        - SEO tidak optimal (CSR by default).
+        - Harus memilih library tambahan.
+    
+    > React dengan Framework:
+        - Fitur kompleks sudah disediakan bawaan (SSR, CSR, routing otomatis).
+        - Cepat dimulai, cocok untuk aplikasi besar.
+        - SEO lebih baik (SSR/SSG by default).
+        - Terintegrasi langsung dengan ekosistem.
+
+    > Contoh:
+        - Next.js: Fokus pada performa dan SEO melalui SSR dan SSG.
+        - Remix: Optimasi data fetching dan UX interaktif.
+        - Gatsby: Cocok untuk situs statis dengan performa tinggi.

@@ -1,0 +1,22 @@
+STATE UPDATE BATCHING
+---------------------
+React menggunakan state update batching untuk mengoptimalkan performa aplikasi. Ini berarti beberapa pembaruan state dapat digabungkan dalam satu render.
+
+> Batched Updates
+    > React akan mengelompokkan (batch) semua perubahan state yang terjadi dalam satu siklus event handler (seperti onClick, onSubmit) untuk menghindari render yang berlebihan.
+    > Render hanya dipicu sekali setelah semua pembaruan state selesai dikelompokkan.
+
+> Asynchronous Nature
+    > Pembaruan state di React bersifat asynchronous. Saat memanggil setState, React tidak langsung memperbarui state, tetapi menunggu hingga seluruh batch selesai.
+    > Nilai state lama akan digunakan hingga batch selesai diproses.
+
+HOW TO STATE UPDATE ARE BATCHED
+-------------------------------
+
+> Render Tidak Dipicu dengan Segera
+    > Ketika beberapa setState dipanggil secara berurutan, React akan menunggu hingga selesai memproses semua perubahan sebelum merender ulang komponen.
+    > Jika perubahan saling bergantung, gunakan callback untuk memastikan nilai state terbaru digunakan.
+
+> State Updates Bergantung pada Batch
+    > Tanpa callback, semua update menggunakan nilai awal state.
+    > Dengan callback, setiap update memperhitungkan hasil pembaruan sebelumnya.

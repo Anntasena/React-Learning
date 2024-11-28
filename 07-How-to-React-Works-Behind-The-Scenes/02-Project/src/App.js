@@ -25,9 +25,8 @@ export default function App() {
     </div>
   );
 }
-
-console.log(<DifferentContent item={23} />);
-console.log(DifferentContent());
+// console.log(<DifferentContent item={23} />);
+// console.log(DifferentContent());
 
 function Tabbed({ content }) {
   const [activeTab, setActiveTab] = useState(0);
@@ -68,9 +67,39 @@ function TabContent({ item }) {
   const [showDetails, setShowDetails] = useState(true);
   const [likes, setLikes] = useState(0);
 
-  function handleInc() {
-    setLikes(likes + 1);
-  }
+  console.log("Render");
+
+  const handleInc = function () {
+    //# tanpa callback
+    // setLikes(likes + 1);
+    //# dengan callback
+    setLikes((likes) => likes + 1);
+  };
+
+  const handleTripleInc = function () {
+    //# tanpa Callback : Semua update menggunakan nilai awal, tidak memperhitungkan perubahan yang belum diproses.
+    // setLikes(likes + 1);
+    // setLikes(likes + 1);
+    // setLikes(likes + 1);
+
+    //# dengan Callback : Update dilakukan secara incremental berdasarkan nilai terbaru, sehingga hasilnya sesuai yang diharapkan.
+    setLikes((likes) => likes + 1);
+    setLikes((likes) => likes + 1);
+    setLikes((likes) => likes + 1);
+
+    // handleInc(); //# dengan callback handleInc menjadi nilai terbaru sehingga bisa di tumpuk
+
+    //$ Tips: Gunakan callback setiap kali update state bergantung pada nilai sebelumnya!
+  };
+
+  const handleUndo = function () {
+    setShowDetails(true);
+    setLikes(0);
+  };
+
+  const handleUndoLater = function () {
+    setTimeout(handleUndo, 2000);
+  };
 
   return (
     <div className="tab-content">
@@ -85,13 +114,13 @@ function TabContent({ item }) {
         <div className="hearts-counter">
           <span>{likes} ❤️</span>
           <button onClick={handleInc}>+</button>
-          <button>+++</button>
+          <button onClick={handleTripleInc}>+ + +</button>
         </div>
       </div>
 
       <div className="tab-undo">
-        <button>Undo</button>
-        <button>Undo in 2s</button>
+        <button onClick={handleUndo}>Undo</button>
+        <button onClick={handleUndoLater}>Undo in 2s</button>
       </div>
     </div>
   );

@@ -1,0 +1,56 @@
+HOW EVENT WORKS IN REACT
+------------------------
+1. React menggunakan Synthetic Events sebagai abstraksi untuk menangani event secara konsisten di semua browser.
+2. Event yang ditangkap React sebenarnya diikat pada elemen root (event delegation).
+3. React memanfaatkan event pooling, tetapi sejak React 17, event pooling tidak lagi digunakan untuk mencegah kesalahan saat mengakses event secara asinkron.
+
+DOM REFRESHER: EVENT PROPAGINATION AND DELEGATION
+-------------------------------------------------
+1. Event Propagation
+    > Proses perambatan event di DOM:
+        a. Capturing Phase (top-down).
+        b. Target Phase (saat event sampai ke target).
+        c. Bubbling Phase (bottom-up).
+
+2. Event Delegation
+    >  Teknik di mana event listener ditempatkan pada elemen parent untuk menangani event pada elemen child menggunakan bubbling phase.
+    > Keuntungan:
+        > Mengurangi jumlah listener.
+        > Efektif untuk elemen dinamis.
+
+HOW REACT HANDLES EVENTS
+-------------------------------------------------
+1. React Delegates Events
+    > Semua event di React ditangani di root element menggunakan event delegation.
+    > React mencegah pengikatan listener di setiap elemen DOM untuk efisiensi.
+
+2. Consistent Behavior
+    > React menggunakan Synthetic Events, sehingga perilaku event sama di berbagai browser.
+
+3. Asynchronous Updates
+    > Event handler di React mendukung batch updates, memungkinkan React menggabungkan beberapa perubahan state.
+
+SYNTETIC EVENTS
+-------------------------------------------------
+1. Apa itu Synthetic Events?
+    > Objek event React yang membungkus event asli DOM, menyediakan API konsisten di semua browser.
+
+2. Keuntungan:
+    > Kompatibilitas lintas browser.
+    > Kinerja lebih baik karena React mengelola listener secara efisien.
+
+
+EVENT HANDLERS IN REACT VS JAVASCRIPT   
+-------------------------------------------------
+1. React:
+    > Event di React menggunakan camelCase (onClick, onChange).
+    > Fungsi handler di React menerima Synthetic Event.
+    > Ditulis langsung sebagai atribut elemen JSX
+
+2. Vanilla JavaScript:
+    > Event listener menggunakan addEventListener.
+    > Handler menerima objek Event asli
+
+3. Perbedaan Utama:
+    > React mendukung event delegation secara otomatis, sedangkan di JS manual.
+    > React tidak memerlukan penghapusan listener saat elemen dihapus (garbage collected).
