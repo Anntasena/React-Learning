@@ -1,0 +1,11 @@
+FIRST LOOK EFFECT
+----------------
+
+
+01. WHERE TO CREATE SIDE EFFECTS
+--------------------------------
+> Dalam react, side effect adalah interaksi antara komoponen react dengan dunia diluar komponen tersebut dan kita dapat menganggap side effect sebagai kode yang benar2 membuat sesuatu yang berguna terjadi. misalnya, fetching data dari berberapa API
+
+
+02. EVENT HANDLER VS EFFECT (useEffect)
+---------------------------------------

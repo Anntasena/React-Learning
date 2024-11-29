@@ -1,0 +1,30 @@
+THE COMPONENT LIFECYCLE
+-----------------------
+
+Component (instance) lifecycle
+------------------------------
+
+> Mount / Inital render
+    - Komponen dibuat untuk pertama kali dan dimasukkan ke dalam DOM.
+    - Contoh: componentDidMount (class component), atau useEffect(() => {}, []) (functional component).
+
+
+> Re-render (optional)
+    - Terjadi karena :
+        > State berubah
+        > Props berubah
+        > Parent re-render
+        > Context berubah  
+    - Contoh: componentDidUpdate (class) atau useEffect(() => {}, [dependencies]) (functional).
+
+> Unmount
+    - Komponen dihapus dari DOM dan lifecycle-nya selesai.
+    - Contoh: componentWillUnmount (class) atau useEffect(() => { return cleanupFn; }, []) (functional).
+
+
+Tujuan lifecycle
+----------------
+> Menjalankan kode tertentu di titik yang sesuai:
+> Mengelola efek samping:
+> Memastikan efisiensi dan konsistensi UI:
+> Menangani cleanup:
