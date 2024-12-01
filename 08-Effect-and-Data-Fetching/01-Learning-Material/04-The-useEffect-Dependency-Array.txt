@@ -1,0 +1,46 @@
+WHAT IS useEffect DEPEDENCY ARRAY?
+----------------------------------
+
+The depedency array
+-------------------
+> Default behavior:
+    -> Secara default, effect akan dijalankan setiap kali komponen dirender ulang. Namun, ini biasanya tidak diinginkan karena dapat menyebabkan overhead.
+    -> Kita dapat mengubah perilaku ini dengan menambahkan dependency array sebagai argumen kedua pada useEffect.
+
+> Tanpa dependency array:
+    -> React tidak tahu kapan harus menjalankan ulang efek, sehingga efek akan dijalankan pada setiap render.
+    -> Dengan menambahkan dependency array, kita dapat memberi tahu React kapan efek tersebut perlu dijalankan ulang.
+
+useEffect is a synchrononization mechanism
+------------------------------------------
+> Tujuan utama useEffect adalah untuk sinkronisasi antara React dan sumber eksternal.
+> Contoh sinkronisasi:
+    -> Mengambil data dari server.
+    -> Menambahkan atau membersihkan event listener.
+    -> Mengupdate DOM di luar kendali React.
+
+> The mechanic of effects 
+    1. useEffect dijalankan setelah DOM selesai diupdate.
+    2. React memastikan semua perubahan UI selesai sebelum efek dijalankan.
+    3. Efek dijalankan sesuai kondisi yang ditentukan di dependency array.
+
+Synchrononization and lifecycle
+-------------------------------
+> useEffect dan lifecycle:
+    -> Mount: Efek dijalankan setelah komponen pertama kali dirender.
+    -> Update: Efek dijalankan kembali jika ada perubahan pada nilai dalam dependency array.
+    -> Unmount: React menjalankan fungsi cleanup (jika ada) sebelum komponen dihapus dari DOM.
+
+When are effects execute?
+-------------------------
+1. Setelah render selesai:
+    -> React memastikan UI sudah stabil sebelum efek dijalankan. 
+
+2. Jika dependency array kosong ([]):
+    -> Efek hanya dijalankan saat komponen mount.
+
+3. Jika ada dependency dalam array:
+    -> Efek dijalankan ulang jika salah satu dependency berubah.
+
+4. Unmount:
+    -> Fungsi cleanup dijalankan untuk membersihkan efek sebelum komponen dihapus.

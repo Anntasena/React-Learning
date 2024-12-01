@@ -1,0 +1,4 @@
+HANDLING ERROR
+--------------
+
+Saat kita melakukan pengambilan data (fetching data) di web aplikasi apapun dan berurusan dengan asyncrhonous data kita harus selalu menasumsikan bahwa ada sesuatu yang tidak beres
