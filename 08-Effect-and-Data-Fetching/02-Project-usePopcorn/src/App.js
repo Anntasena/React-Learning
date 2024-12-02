@@ -86,14 +86,28 @@ export default function App() {
     setSelectedId(null);
   };
 
+  const handleAddWatched = function (movie) {
+    setWatched((watched) => [...watched, movie]);
+  };
+
+  const handleDeleteWatched = function (id) {
+    setWatched((watched) => watched.filter((movie) => movie.imdbID !== id));
+  };
+
   useEffect(
     function () {
+      //$ Handle fetch request berlebihan (CODE RECIPE)
+      //= 1. set controller
+      const controller = new AbortController();
+
       async function fetchMovie() {
         try {
           setError("");
           setIsLoading(true);
           const res = await fetch(
-            `http://www.omdbapi.com/?apikey=${KEY}&S=${query}`
+            `http://www.omdbapi.com/?apikey=${KEY}&S=${query}`,
+            //= 2. menambahkan argumen kedua dengan signal
+            { signal: controller.signal }
           );
 
           if (!res.ok) throw new Error("Something wrong with fatching movie");
@@ -105,9 +119,13 @@ export default function App() {
           if (data.Response === "False") throw new Error("Movie not found");
 
           setMovies(data.Search);
+          setError("");
         } catch (err) {
           console.log(err.message);
-          setError(err.message);
+
+          if (err.name !== "AbortError") {
+            setError(err.message);
+          }
         } finally {
           setIsLoading(false);
         }
@@ -120,6 +138,11 @@ export default function App() {
       }
 
       fetchMovie();
+
+      //= 3. lakukan cleaning function
+      return function () {
+        controller.abort();
+      };
     },
     [query]
   );
@@ -144,11 +167,16 @@ export default function App() {
             <MovieDetails
               selectedId={selectedId}
               onCloseMovie={handleCloseMovie}
+              onAddWatched={handleAddWatched}
+              watched={watched}
             />
           ) : (
             <>
               <WatchSummary watched={watched} />
-              <WatchMovieList watched={watched} />
+              <WatchMovieList
+                watched={watched}
+                onDeleteWatched={handleDeleteWatched}
+              />
             </>
           )}
         </Box>
@@ -249,9 +277,15 @@ function Movie({ movie, onSelectMovie }) {
   );
 }
 
-function MovieDetails({ selectedId, onCloseMovie }) {
+function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
   const [movie, setMovie] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+  const [userRating, setUserRating] = useState("");
+
+  const isWatched = watched.map((movie) => movie.imdbID).includes(selectedId);
+  const watchedUserRating = watched.find(
+    (movie) => movie.imdbID === selectedId
+  )?.userRating;
 
   const {
     Title: title,
@@ -266,7 +300,22 @@ function MovieDetails({ selectedId, onCloseMovie }) {
     Genre: genre,
   } = movie;
 
-  console.log(title, year);
+  const handleAdd = function () {
+    const newWatchMovie = {
+      imdbID: selectedId,
+      title,
+      year,
+      poster,
+      imdbRating: Number(imdbRating),
+      runtime: Number(runtime.split(" ").at(0)),
+      userRating,
+    };
+
+    onAddWatched(newWatchMovie);
+    onCloseMovie();
+    console.log(selectedId);
+    console.log(movie);
+  };
 
   useEffect(
     function () {
@@ -282,6 +331,18 @@ function MovieDetails({ selectedId, onCloseMovie }) {
       getMovieDetails();
     },
     [selectedId]
+  );
+
+  useEffect(
+    function () {
+      if (!title) return;
+      document.title = `Movie | ${title}`;
+
+      return function () {
+        document.title = "usePopcorn";
+      };
+    },
+    [title]
   );
 
   return (
@@ -310,7 +371,26 @@ function MovieDetails({ selectedId, onCloseMovie }) {
 
           <section>
             <div className="rating">
-              <StarRating maxRating={10} size={24} />
+              {!isWatched ? (
+                <>
+                  <StarRating
+                    maxRating={10}
+                    size={24}
+                    onSetRating={setUserRating}
+                  />
+
+                  {userRating > 0 && (
+                    <button className="btn-add" onClick={handleAdd}>
+                      + Add to list
+                    </button>
+                  )}
+                </>
+              ) : (
+                <p>
+                  You rated with movie {watchedUserRating}
+                  <span>⭐</span>
+                </p>
+              )}
             </div>
             <p>
               <em>{plot}</em>
@@ -339,36 +419,40 @@ function WatchSummary({ watched }) {
         </p>
         <p>
           <span>⭐️</span>
-          <span>{avgImdbRating}</span>
+          <span>{avgImdbRating.toFixed(1)}</span>
         </p>
         <p>
           <span>🌟</span>
-          <span>{avgUserRating}</span>
+          <span>{avgUserRating.toFixed(1)}</span>
         </p>
         <p>
           <span>⏳</span>
-          <span>{avgRuntime} min</span>
+          <span>{Math.trunc(avgRuntime)} min</span>
         </p>
       </div>
     </div>
   );
 }
 
-function WatchMovieList({ watched }) {
+function WatchMovieList({ watched, onDeleteWatched }) {
   return (
     <ul className="list">
       {watched.map((movie) => (
-        <WatchMovie movie={movie} key={movie.imdbID} />
+        <WatchMovie
+          movie={movie}
+          key={movie.imdbID}
+          onDeleteWatched={onDeleteWatched}
+        />
       ))}
     </ul>
   );
 }
 
-function WatchMovie({ movie }) {
+function WatchMovie({ movie, onDeleteWatched }) {
   return (
     <li>
-      <img src={movie.Poster} alt={`${movie.Title} poster`} />
-      <h3>{movie.Title}</h3>
+      <img src={movie.poster} alt={`${movie.title} poster`} />
+      <h3>{movie.title}</h3>
       <div>
         <p>
           <span>⭐️</span>
@@ -382,6 +466,13 @@ function WatchMovie({ movie }) {
           <span>⏳</span>
           <span>{movie.runtime} min</span>
         </p>
+
+        <button
+          className="btn-delete"
+          onClick={() => onDeleteWatched(movie.imdbID)}
+        >
+          X
+        </button>
       </div>
     </li>
   );

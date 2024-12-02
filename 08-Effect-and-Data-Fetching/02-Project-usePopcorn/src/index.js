@@ -19,6 +19,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <App />
+    {/* <StarRating /> */}
     {/* <StarRating
       maxRating={5}
       message={["Terrible", "Bad", "Okay", "Good", "Masterpiece"]}
@@ -26,6 +27,7 @@ root.render(
     {/* <StarRating maxRating={10} />
     <StarRating className="test" />
     <StarRating size={24} color="#1f7a" defaultRating={3} />
+    
 
     <Test /> */}
   </React.StrictMode>

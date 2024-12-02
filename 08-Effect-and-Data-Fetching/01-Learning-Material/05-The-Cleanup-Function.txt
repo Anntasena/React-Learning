@@ -1,0 +1,35 @@
+THE USEEFFECT CLEANUP FUNCTION
+------------------------------
+
+The cleanup function
+----
+
+> cleanup function adalah function yang bisa dikembalikan dari effect dan bisa dikatakan, cleanup function bersifat optional
+> cleanup function berjalan di dua kesempatan:
+    ->  sebelum effect diesekusi lagi
+    ->  setelah komponen dilepas
+
+
+GPT VERSION
+-----------
+
+Cleanup function adalah fungsi yang digunakan dalam hook useEffect untuk membersihkan efek samping sebelum komponen di-unmount atau sebelum efek dijalankan ulang.
+
+Tujuan Cleanup Function
+    1. Mencegah Memory Leaks
+        - Membersihkan resource seperti event listener, timer, atau subscription yang tidak lagi diperlukan.
+    2. Menghentikan Proses yang Berjalan
+        - Menghentikan proses seperti API call atau interval yang sedang aktif.
+
+Kapan Cleanup Function Dijalankan?
+    1. Sebelum komponen di-unmount
+        - Membersihkan efek ketika komponen dihapus dari DOM.
+    2. Sebelum efek dijalankan ulang
+        - Jika dependency array berubah, React menjalankan cleanup sebelum menjalankan efek baru.
+
+Poin Penting
+1. Cleanup hanya diperlukan jika efek membuat sesuatu yang perlu dibersihkan (seperti timer, listener).
+2. Cleanup tidak selalu digunakan jika efek hanya berupa log atau update state sederhana.
+------------------------------------------------------
+Sederhana, tapi penting untuk efisiensi aplikasi Anda!
+------------------------------------------------------

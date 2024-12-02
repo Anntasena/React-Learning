@@ -1,0 +1,6 @@
+CLEANUP DATA FETCHING
+---------------------
+
+Request yang banyak saat fetching memiliki 2 masalah
+1. memperlambat masing masing request
+2. mengunduh terlalu banyak data
