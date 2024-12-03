@@ -55,7 +55,7 @@ const average = (arr) =>
 const KEY = "276b8d6c";
 
 export default function App() {
-  const [query, setQuery] = useState("inception");
+  const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);
   const [watched, setWatched] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -121,9 +121,8 @@ export default function App() {
           setMovies(data.Search);
           setError("");
         } catch (err) {
-          console.log(err.message);
-
           if (err.name !== "AbortError") {
+            console.log(err.message);
             setError(err.message);
           }
         } finally {
@@ -137,6 +136,7 @@ export default function App() {
         return;
       }
 
+      handleCloseMovie();
       fetchMovie();
 
       //= 3. lakukan cleaning function
@@ -313,9 +313,28 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
 
     onAddWatched(newWatchMovie);
     onCloseMovie();
-    console.log(selectedId);
-    console.log(movie);
   };
+
+  //$ KEYPRESS FEATURES
+  useEffect(
+    function () {
+      //= 1. function callback dibuat
+      const callback = function (e) {
+        if (e.code === "Escape") {
+          onCloseMovie();
+        }
+      };
+
+      //= 2. memanggil function (addEventListener)
+      document.addEventListener("keydown", callback);
+
+      //= 3. cleanup function (removeEventListener), hal yang mau kita hapus "harus sama persis" dengan addEventListener
+      return function () {
+        document.removeEventListener("keydown", callback);
+      };
+    },
+    [onCloseMovie]
+  );
 
   useEffect(
     function () {
