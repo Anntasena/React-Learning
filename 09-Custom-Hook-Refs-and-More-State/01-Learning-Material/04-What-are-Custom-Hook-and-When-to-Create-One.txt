@@ -1,0 +1,60 @@
+What are Custom Hooks? When to Create One?
+------------------------------------------
+
+Custom hooks adalah fungsi JavaScript yang diawali dengan kata "use" dan memungkinkan Anda untuk mengekstrak dan menggunakan kembali logika React secara lebih modular. Custom hooks digunakan untuk mengurangi duplikasi kode dan membuat logika aplikasi menjadi lebih terorganisir.
+
+Reusing logic with custom hooks
+---
+
+> I need to reuse:
+    > **UI**
+        -> Gunakan **Component** untuk menyusun kembali elemen visual atau komponen yang sama.
+    
+    > **Logic**
+        -> **No?** Jika logika tidak melibatkan state atau efek React, gunakan **Regular Function**.
+        -> **Yes?** Jika logika melibatkan state, efek samping, atau hooks lainnya, gunakan **Custom Hook**.
+
+Additional Points:
+---
+1. **Kapan Membuat Custom Hook?**
+    - Ketika Anda menemukan bahwa logika yang sama digunakan di beberapa komponen berbeda.
+    - Ketika logika terlalu kompleks untuk ditangani di dalam satu komponen.
+    - Untuk menjaga komponen tetap kecil dan fokus pada tanggung jawab utamanya.
+
+2. **Cara Membuat Custom Hook**
+    - Mulai dengan mendefinisikan fungsi yang namanya diawali dengan "use".
+    - Gunakan hooks bawaan seperti `useState`, `useEffect`, dll., di dalamnya.
+    - Kembalikan nilai atau fungsi yang dapat digunakan di komponen lain.
+
+    **Contoh:**
+    ```jsx
+    function useFetch(url) {
+      const [data, setData] = useState(null);
+      const [loading, setLoading] = useState(true);
+
+      useEffect(() => {
+        async function fetchData() {
+          const response = await fetch(url);
+          const result = await response.json();
+          setData(result);
+          setLoading(false);
+        }
+        fetchData();
+      }, [url]);
+
+      return { data, loading };
+    }
+    ```
+
+3. **Keuntungan Menggunakan Custom Hook**
+    - **Reusability:** Logika dapat digunakan di banyak komponen tanpa duplikasi.
+    - **Organisasi Kode:** Memisahkan logika kompleks dari komponen UI.
+    - **Testability:** Logika dalam custom hook lebih mudah diuji secara unit.
+
+4. **Perbedaan dengan Component**
+    - **Custom Hook:** Mengelola logika, state, dan efek (tidak memiliki elemen UI).
+    - **Component:** Mengelola rendering elemen UI.
+
+5. **Tips:**
+    - Jangan gunakan custom hook untuk hal sederhana jika fungsi biasa sudah cukup.
+    - Pastikan custom hook tetap fokus pada satu tanggung jawab (single responsibility).

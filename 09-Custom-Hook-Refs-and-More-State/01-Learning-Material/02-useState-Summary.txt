@@ -1,0 +1,37 @@
+USESTATE SUMMARY
+----------------
+
+Summary of defining and updating state
+----
+
+1. Create State
+   - **Simple:**
+     State dibuat dengan memanggil hook `useState` dan memberikan nilai awalnya.
+     Contoh:
+     ```jsx
+     const [count, setCount] = useState(0);
+     ```
+     Di sini, `count` adalah state, dan `setCount` adalah fungsi untuk memperbarui nilai state.
+
+   - **Based on Function (Lazy Evaluation):**
+     Jika inisialisasi state melibatkan perhitungan berat, Anda dapat menggunakan fungsi untuk mengatur nilai awalnya secara efisien.
+     Contoh:
+     ```jsx
+     const [value, setValue] = useState(() => computeInitialValue());
+     ```
+     React hanya memanggil `computeInitialValue` sekali saat komponen pertama kali dirender.
+
+2. Update State
+   - **Simple:**
+     Gunakan fungsi setter (misalnya `setCount`) untuk memberikan nilai baru.
+     Contoh:
+     ```jsx
+     setCount(5); // Mengubah nilai state menjadi 5
+     ```
+
+   - **Based on Current State:**
+     Jika pembaruan state tergantung pada nilai state sebelumnya, gunakan callback di dalam setter.
+     Contoh:
+     ```jsx
+     setCount((prevCount) => prevCount + 1); // Tambahkan 1 ke nilai state sebelumnya
+     

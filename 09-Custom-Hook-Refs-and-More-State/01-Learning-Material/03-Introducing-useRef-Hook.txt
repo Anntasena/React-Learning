@@ -1,0 +1,57 @@
+INTRODUCING ANOTHER HOOK: USEREF
+-------------------------------
+
+What are refs?
+----
+Refs (singkatan dari "references") adalah cara untuk menyimpan referensi ke elemen DOM atau nilai yang persisten di antara render tanpa memicu re-render. Refs memungkinkan Anda mengakses dan memanipulasi DOM secara langsung, serta menyimpan data di luar siklus render React.
+
+REF with useRef
+----
+1. **2 Big Use Cases:**
+   - **Mengakses Elemen DOM:**
+     Anda dapat menggunakan `useRef` untuk mendapatkan referensi langsung ke elemen DOM, seperti input atau canvas.
+     Contoh:
+     ```jsx
+     const inputRef = useRef();
+
+     const focusInput = () => {
+       inputRef.current.focus();
+     };
+
+     return (
+       <>
+         <input ref={inputRef} />
+         <button onClick={focusInput}>Focus Input</button>
+       </>
+     );
+     ```
+
+   - **Menyimpan Nilai Persisten:**
+     Refs dapat digunakan untuk menyimpan nilai yang tidak perlu memicu re-render ketika berubah, seperti ID interval.
+     Contoh:
+     ```jsx
+     const intervalRef = useRef();
+
+     useEffect(() => {
+       intervalRef.current = setInterval(() => {
+         console.log("Interval running");
+       }, 1000);
+
+       return () => clearInterval(intervalRef.current);
+     }, []);
+     ```
+
+State vs refs
+----
+1. **State:**
+   - Digunakan untuk menyimpan data yang memengaruhi UI.
+   - Ketika state berubah, React akan memicu re-render komponen.
+
+2. **Refs:**
+   - Digunakan untuk menyimpan data yang tidak memengaruhi UI.
+   - Perubahan nilai refs tidak memicu re-render.
+   - Cocok untuk tugas seperti menyimpan nilai interval, mengakses elemen DOM, atau menyimpan data persisten di antara render.
+
+**Perbedaan Utama:**
+- Gunakan state jika perubahan data harus terlihat oleh pengguna.
+- Gunakan refs jika perubahan data hanya bersifat internal dan tidak memerlukan pembaruan UI.
