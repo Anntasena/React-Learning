@@ -1,5 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import StarRating from "./StartRating";
+import { useMovies } from "./useMovie";
+import { useLocalStorageState } from "./useLocalStorageState";
+import { useKey } from "./useKey";
 
 const average = (arr) =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
@@ -9,95 +12,27 @@ const KEY = "276b8d6c";
 
 export default function App() {
   const [query, setQuery] = useState("");
-  const [movies, setMovies] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState("");
   const [selectedId, setSelectedId] = useState(null);
+  const { movies, isLoading, error } = useMovies(query);
+  const [watched, setWatched] = useLocalStorageState([], "watched");
 
-  // const [watched, setWatched] = useState([]);
-  const [watched, setWatched] = useState(function () {
-    const storageValue = localStorage.getItem("watched");
-    return JSON.parse(storageValue);
-  });
-
-  const handleSelectMoive = function (id) {
+  function handleSelectMoive(id) {
     setSelectedId((selectedId) => (id === selectedId ? null : id));
-  };
+  }
 
-  const handleCloseMovie = function () {
+  function handleCloseMovie() {
     setSelectedId(null);
-  };
+  }
 
-  const handleAddWatched = function (movie) {
+  function handleAddWatched(movie) {
     setWatched((watched) => [...watched, movie]);
 
     // localStorage.setItem("watched", JSON.stringify([...watched, movie]));
-  };
+  }
 
-  const handleDeleteWatched = function (id) {
+  function handleDeleteWatched(id) {
     setWatched((watched) => watched.filter((movie) => movie.imdbID !== id));
-  };
-
-  //= Locale Storage for watch list
-  useEffect(
-    function () {
-      localStorage.setItem("watched", JSON.stringify(watched));
-    },
-    [watched]
-  );
-
-  useEffect(
-    function () {
-      //$ Handle fetch request berlebihan (CODE RECIPE)
-      //= 1. set controller
-      const controller = new AbortController();
-
-      async function fetchMovie() {
-        try {
-          setError("");
-          setIsLoading(true);
-          const res = await fetch(
-            `http://www.omdbapi.com/?apikey=${KEY}&S=${query}`,
-            //= 2. menambahkan argumen kedua dengan signal
-            { signal: controller.signal }
-          );
-
-          if (!res.ok) throw new Error("Something wrong with fatching movie");
-
-          const data = await res.json();
-
-          if (query.length === 0) throw new Error("");
-
-          if (data.Response === "False") throw new Error("Movie not found");
-
-          setMovies(data.Search);
-          setError("");
-        } catch (err) {
-          if (err.name !== "AbortError") {
-            console.log(err.message);
-            setError(err.message);
-          }
-        } finally {
-          setIsLoading(false);
-        }
-      }
-
-      if (!query.length > 3) {
-        setMovies([]);
-        setError("");
-        return;
-      }
-
-      handleCloseMovie();
-      fetchMovie();
-
-      //= 3. lakukan cleaning function
-      return function () {
-        controller.abort();
-      };
-    },
-    [query]
-  );
+  }
 
   return (
     <>
@@ -167,33 +102,13 @@ function Logo() {
 }
 
 function Search({ query, setQuery }) {
-  //$ Cara menggunakan useRef
-  //= 1. definisikan
   const inputEl = useRef(null);
 
-  //= 3. menggunakan useEffect dan mengubahnya sesuai yang diinginkan
-  useEffect(
-    function () {
-      const callback = function (e) {
-        if (document.activeElement === inputEl.current) return;
-
-        if (e.code === "Enter") {
-          inputEl.current.focus();
-          setQuery("");
-        }
-      };
-
-      document.addEventListener("keydown", callback);
-      return () => document.addEventListener("keydown", callback);
-    },
-    [setQuery]
-  );
-
-  // useEffect(function () {
-  //   const el = document.querySelector(".search");
-  //   console.log(el);
-  //   el.focus();
-  // }, []);
+  useKey("Enter", function () {
+    if (document.activeElement === inputEl.current) return;
+    inputEl.current.focus();
+    setQuery("");
+  });
 
   return (
     <input
@@ -327,26 +242,7 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
     // setAvgRating((rates) => (rates + userRating) / 2);
   };
 
-  //$ KEYPRESS FEATURES
-  useEffect(
-    function () {
-      //= 1. function callback dibuat
-      const callback = function (e) {
-        if (e.code === "Escape") {
-          onCloseMovie();
-        }
-      };
-
-      //= 2. memanggil function (addEventListener)
-      document.addEventListener("keydown", callback);
-
-      //= 3. cleanup function (removeEventListener), hal yang mau kita hapus "harus sama persis" dengan addEventListener
-      return function () {
-        document.removeEventListener("keydown", callback);
-      };
-    },
-    [onCloseMovie]
-  );
+  useKey("Escape", onCloseMovie);
 
   useEffect(
     function () {
