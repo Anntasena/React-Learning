@@ -1,0 +1,26 @@
+Managing state with use reducer
+-------------------------------
+useReducer sering kali digunakan untuk memusatkan semua logika pembaruan status di satu tempat sentral
+
+Why reducer
+---
+> Menggunakan "useState" untuk mengelola semua state dalam situasi tertentu itu tidak cukup
+    contoh:
+        ->  Berberapa komponen memiliki banyak variabel, state dan state update yang tersebar diberberapa event handler diseluruh komponen yang menyebabkan sulit untuk dikelola
+        ->  Sangat umum terjadi bahwa berberapa pembaruan status perlu dilakukan pada saat yang sama sebagai reaksi terhadap peristiwa yang sama
+        ->  Memperbaharui satu bagian dari state bergantung pada satu atau lebih bagian dari state lainnya yang juga dapat menjadi tantangan ketika ada banyak state
+> Dalam kasus tersebut "useReducer" bisa sangat membantu
+
+
+Managing state with useReducer
+---
+> State with useReducer
+    -> useReducer adalah cara alternatif untuk mengatur dan mengelola state yang ideal untuk state yang kompleks dan saling berkaitan
+    -> saat Menggunakan useReducer kita biasanya menyimpan bagian state yang terkait dalam object state yang dikembalikan dari hook useReducer
+    -> useReducer membutuhkan "reducer function" untuk bekerja, jadi function ini adalah tempat kita menempatkan semua logika yang bertanggung jawab untuk memperbaharui state
+    -> Reducer: hanyalah sebuah funciton yang mengambil kondisi saat ini dan suatu tindakan dan bedasarkan nilai2 tersebut
+    -> Action: adalah object yang menjelaskan bagaiman state harus diperbaharui
+    -> dispatch: adalah funciton untuk mengirimkan action dari event-handler tempat kita memanggil dispatch ke reducer
+
+How reducer update state
+---
