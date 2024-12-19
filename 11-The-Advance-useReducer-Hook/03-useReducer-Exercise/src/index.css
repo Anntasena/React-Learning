@@ -1,0 +1,15 @@
+.app {
+  font-family: sans-serif;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.option {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center; /* Memastikan elemen berada di tengah */
+}

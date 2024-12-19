@@ -1,0 +1,34 @@
+Cara menggunakan vite
+---------------------
+1. buka terminal / powershell
+2. masuk ke folder yang diinginkan
+3. "ketik" npm create vite@latest 
+    -> muncul option : berikan nama
+    -> muncul option : framework
+    -> muncul option : bahasa pemrograman
+
+
+Cara menjalankan vite
+---------------------
+1. buka terminal
+2. masuk kefolder vite yang sudah di install
+3. instal depedency dengan "ketik" npm i
+4. untuk menjalankan "ketik" npm run dev
+
+
+Cara menginstall ESLint di vite
+-------------------------------
+1. masuk ke terminal
+2. masuk ke folder projek vite kita
+3. "ketik" npm install eslint vite-plugin-eslint eslint-config-react-app --save-dev
+4. buatfile di luar dengan nama ".eslintrc.json"
+5. dalam filenya tulis seperti ini:
+    {
+        "extends": "react-app"  
+    }
+6. masuk ke file vite.config.js
+    -> import eslint from "vite-plugin-eslint";
+    -> tambahkan eslint di plugin array
+        export default defineConfig({
+            plugins: [react(), eslint()],
+}       );
