@@ -1,0 +1,48 @@
+Styling option in react
+-----------------------
+
+-> Salah satu fundamental filosofi dasar di react adalah untuk tidak memiliki opini dalam banyak hal aspek dalam membangun aplikasi dalan salah satunya adalah "styling"
+-> React tidak peduli bagimana kita styling aplikasi
+
+Styling option
+---
+1. Inline CSS
+    - Where? JSX Element
+    - How? style prop
+    - Scope? JSX Element (local)
+    - Base On? CSS
+
+2. CSS / SCSS file
+    - Where? External file
+    - How? className prop
+    - Scope? Entire App (global)
+    - Base On? CSS
+
+3. CSS Modules
+    - Where? One External file per component
+    - How? className prop
+    - Scope? Component
+    - Base On? CSS
+
+3. CSS in-JS
+    - Where? One External file per component
+    - How? Create new component
+    - Scope? Component
+    - Base On? Javascript
+
+4. Utility-first CSS (Tailwind)
+    - Where? JSX Element
+    - How? className prop
+    - Scope? JSX Element
+    - Base On? CSS
+
+4. Alternative to styling witout CSS, used UI Library like:
+    - MUI
+    - Chakra UI
+    - Mantine
+    - Etc
+
+Poin penting
+---
+-> Dalam project profesional css hampir tidak perah bersifat global
+-> CSS harus dicakup kemasing masing komponen

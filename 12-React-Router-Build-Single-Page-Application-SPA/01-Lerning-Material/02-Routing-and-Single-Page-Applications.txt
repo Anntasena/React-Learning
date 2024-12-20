@@ -1,0 +1,28 @@
+What is Routing?
+----------------
+
+Routing
+----
+> Dengan routing, kita mencocokan URL yang berbeda dengan tampilan berbeda dalam UI pengguna (routes)
+> Pada dasarnya, ini memungkinkan pengguna untuk menavigasi di UI aplikasi yang berbeda hanya dengan menggunakan "link" dan URL browser
+> Membuat UI tetap singkron dengan URL browser
+
+Poin penting
+---
+-> Routing ini hanya bekerja dengan cara clinet side rendering (CSR)
+-> React mengandalkan pihak ketiga untuk routing seperti (React Router)
+-> Mengapa kita perlu mempelajari react router? karna router merupakan hal dasar dalam membuat aplikasi website
+
+Single Page Aplication (SPA)
+---
+> aplikasi website yang dijalankan sepenuhnya pada browser clinet 
+> SPA sangat bergantung pada konsep route dimana URL berbeda mempunyai tampilan berbeda
+> Javascript (react) digunakan untuk mengupdate halaman (DOM)
+> Halaman tidak akan pernah ada pemuatan ulang halaman yang lengkap
+> SPA terasa seperti aplikasi dekstop / native app 
+> Berberapa data tambahan mungkin akan dimuat dari web API
+
+Poin penting
+---
+-> SPA dibelakang layar membuat satu halaman utuh 
+-> Dalam aplikasi profesional hal itu tidaklah cukup web tersebut harus dilengkapi router agar lebih nyaman digunakan

@@ -32,3 +32,8 @@ Cara menginstall ESLint di vite
         export default defineConfig({
             plugins: [react(), eslint()],
 }       );
+
+Cara mengisntall Routes di vite
+-------------------------------
+1. masuk ke terminal di folder yang sudah terinstall react + vite
+2. "ketik"  npm i react-router-dom
