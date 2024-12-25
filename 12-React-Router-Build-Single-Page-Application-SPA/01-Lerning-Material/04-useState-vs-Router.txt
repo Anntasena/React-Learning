@@ -1,0 +1,21 @@
+useState VS Router
+------------------
+
+1. useState (State Management)
+---
+useState adalah hook di React yang digunakan untuk mengelola state (keadaan atau data yang berubah) dalam suatu komponen. Ini berguna untuk menyimpan data sementara dalam komponen, seperti input form, counter, toggle, atau data lainnya yang spesifik untuk komponen tersebut.
+
+  > Kapan digunakan:
+    -> Ketika Anda ingin melacak data lokal (state) dalam suatu komponen.
+    -> Contoh kasus: form input, checkbox status, atau nilai counter.
+
+2. React Router (Navigation/Route Management)
+---
+React Router adalah library untuk mengelola navigasi dan routing di aplikasi React. Dengan React Router, Anda bisa membuat aplikasi dengan banyak halaman (routes) tanpa perlu melakukan refresh halaman secara penuh.
+
+  > Kapan digunakan:
+    -> Ketika Anda ingin membuat navigasi antar halaman dalam aplikasi React. 
+    -> Contoh kasus: aplikasi dengan halaman Home, About, Contact, dll.
+
+#PENTING#
+Navigasi ini tidak dikelola dengan useState karena useState hanya digunakan untuk mengelola data dalam komponen, bukan untuk mengatur navigasi antar halaman.
