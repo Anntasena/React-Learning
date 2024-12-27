@@ -1,0 +1,22 @@
+The URL for state management
+----------------------------
+> URL merupakan tempat yang sangat baik untuk menyimpan "state", khususnya UI state
+
+
+Alasan URL state
+-----
+
+1. -> Alasan untuk menempatkan state di URL adalah cara termudah untuk menyimpan state di global state yang mudah di akses untuk semua komponen dalam aplikasi
+2. -> Cara yang baik untuk meneruskan data dari satu halaman ke halaman berikutnya tanpa harus menyimpan data tersebut di suatu tempat sementara dalam aplikasi
+3. -> Memungkinkan untuk menandai atau membagikan halaman dengan UI state yang sama persis dengan UI state yang dimiliki halaman tersebut 
+
+contoh:
+www.example.com/app/cities/lisbon?lat=38.728&lng=-9.141
+
+-> /app/cities => [path]
+
+-> lisbon? => [params]
+  * Params merupakan singkatan dari parameter yang sangat berguna untuk meneruskan data kehalaman berikutnya sementara
+
+->lat=38.728&lng=-9.141 => query string
+  * query string berguna untuk menyimpan berberapa status global yang harus dapat di akses dimana saja
