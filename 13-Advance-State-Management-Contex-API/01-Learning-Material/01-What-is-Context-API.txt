@@ -1,0 +1,15 @@
+What is contex API
+------------------
+> Contex API adalah sistem untuk meneruskan data ke seluruh aplikasi tanpa harus secara manual meneruskan props ke component tree
+> Memungkinkan kita untuk "menyebarkan" global state di seluruh apikasi
+
+Bagian dari contex API
+  -> Provider: komponen khusus react yang memberikan akses kesemua child komponen untuk mengkases sebuah value
+  -> Value: data yang disediakan (biasanay state / function)
+  -> Consumers: semua komponen yang membaca nilai yang diberikan kepada provider
+
+
+A solution to prop drilling
+---
+
+-> TASK: passing state keberberapa komponen turunan yang "nested" 
