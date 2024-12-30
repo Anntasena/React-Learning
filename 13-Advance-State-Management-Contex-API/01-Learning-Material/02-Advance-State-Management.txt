@@ -1,0 +1,51 @@
+Apa itu state management
+------------------------
+> State management = memberi setiap bagian state di tempat yang tepat
+
+
+Type of State
+---
+1. State accessibility
+  > Local state & global state
+    -> Cara penggunaan: jika komponen di render 2 kali, haruskan state memperbaharui di salah satu komponen tercermin di komponen lainnya? jika tidak itu LOCAL STATE
+
+2. State domain
+  > Remote state & UI state
+    -> Remote state
+      >> semua data aplikasi yang dimuat di remote server biasanya menggunakan API
+      >> biasanya asynchronous
+      >> butuh re-fetching + updating
+    
+    -> UI state
+      >> seperti tema, list filter, form data, dll
+      >> biasanya synchornous dan di simpan dalan aplikasi
+
+State placement options
+---
+
+local component
+      --> useState, useReducer, useRef
+            --> Local State
+
+parent component
+      --> useState, useReducer, useRef
+            --> Lifting up state
+
+Context
+      --> Context API + useState / useReducer
+            --> Global state (preferably UI state)
+
+3rd-party library
+      --> Redux, React Query, SWR, Zustand, dll
+            -->  Global state (remote / UI)
+
+URL
+      --> React router
+            --> Global state, passing between pages
+
+browser
+      --> Local storage, session storage, dll
+            --> Storing data in user browser
+
+State management tool options
+---
