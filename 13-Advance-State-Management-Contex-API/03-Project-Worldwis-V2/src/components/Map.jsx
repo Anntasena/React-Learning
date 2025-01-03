@@ -10,6 +10,7 @@ import markerShadow from "leaflet/dist/images/marker-shadow.png";
 import { useCities } from "../contexts/CitiesContext";
 import { useGeolocation } from "../hooks/useGeolocation";
 import Button from "./Button";
+import { useUrlPosition } from "../hooks/useUrlPosition";
 
 const customMarkerIcon = MarkerIconLeaflet.icon({
   iconUrl: markerIcon,
@@ -20,15 +21,12 @@ const customMarkerIcon = MarkerIconLeaflet.icon({
 function Map() {
   const { cities } = useCities();
   const [mapPosition, setMapPosition] = useState([40, 0]);
-  const [searchParams] = useSearchParams();
   const {
     isLoading: isLoadingPosition,
     position: geolocationPosition,
     getPosition,
   } = useGeolocation();
-
-  const mapLat = searchParams.get("lat");
-  const mapLng = searchParams.get("lng");
+  const [mapLat, mapLng] = useUrlPosition();
 
   useEffect(
     function () {
@@ -94,7 +92,6 @@ function DetectClick() {
 
   useMapEvent({
     click: (e) => {
-      console.log(e);
       navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lat}`);
     },
   });
