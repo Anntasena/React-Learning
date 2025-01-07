@@ -1,0 +1,10 @@
+Authentication in React
+-----------------------
+
+Pada aplikasi front-end seperti react, Authentication biasanya bekerja dalam 3 langkah:
+
+  1. kita mendapatkan email dan sandi pengguna dari login form dan memeriksa dengan API endpoint apakah kata sandi pengguna sudah benar
+  2. Jika benar2 kredensial, kita kemudian mengarahkan pengguna aplikasi utama kita dan kita menyimpan object pengguna di state kita
+  3. Kita perlu melindungi aplikasi dari akses yang tidak sah, jadi dari pengguna yang tidak sedang login
+
+  
