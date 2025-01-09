@@ -1,0 +1,30 @@
+Performance Optimization and Waste Renders
+------------------------------------------
+
+Performance optimization tools
+---
+1. Mencoba pemborosan render
+    - memo
+    - useMemo
+    - useCallback
+    - passing element sebagai children atau regular prop
+
+2. Meningkatkan kecepatan dan daya responsive
+  - useMemo
+  - useCallback 
+  - useTransation
+
+3. Mengurangi uku ran bundle
+  - menggunakan sedikit 3rd party packages
+  - menggunakan code splitting dan lazy loading
+
+Ada 3 situasi penyebaba komponen instance melakukan re-render:
+---
+1. State change
+2. Context change
+3. Parents re-render
+
+Apa itu wasted render?
+---
+Wasted render = render yang tidak menghasilkan perubahan apapun pada DOM
+* Sebagian besar kejadian, hal ini sebenarnya tidak masalah karna react sangat cepat. Namun, hal ini menjadi masalah besar apabila render ulang terjadi terlalu sering atau apabila komponen sangat lambat dalam merender
