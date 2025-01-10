@@ -1,0 +1,20 @@
+What is memoization
+-------------------
+Memoization = teknik pengoptimalan yang mengesekusi fungsi murni satu kali, kemudian menyimpan hasilnya dalam memori dalam cache
+
+The memo function
+---
+
+> memo 
+  -> kita dapat menggunakan function ini untuk membuat komponen yang tidak dirender ulang ketika induknya dirender ulang, selama props yang sebelumnya tetap sama diantara render atau dengan kata lalin, kita menggunakan memo
+  -> Perlu di ingat memo komponen hanya mempengaruhi props, ini berarti bahwa komponen yang di memo akan tetap merender ulang setiap kali statenya berubah atau setiap kali ada perubahan dalam konteks yang disubscribe oleh komponen tersebut
+  -> Apakah kita perlu memo untuk semua komponen kita? jawabannya tidak, tidak sama sekali. jadi memo hanya berguan ketika kita berurusan dengan komponen yang berat
+
+> Regular behavior (no memo)
+    [Component re-render] -> [child re-render]
+    jika Component re-render child Component akan ikut re-render
+
+> Memoized child with memo
+    [Component re-render] -[prop sama]-> [Memoization child doesnt re-render]
+    jika component re-render ketika child di memo tidak akan melakukan re-render keculai mempunyai prop yang berbeda
+

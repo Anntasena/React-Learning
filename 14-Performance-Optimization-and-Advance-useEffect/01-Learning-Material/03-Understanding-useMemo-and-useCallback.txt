@@ -1,0 +1,25 @@
+An issue with memo
+------------------
+> Di react setiap kali sebuah instance komponen di re-render semua yang ada di dalamnya akan re-render (termasuk objek dan function)
+> Di javascript, 2 objek atau function terlihat sama padahal sebenarnya mereka adalah 2 hal berberda ({} != {})
+> Jika objek atau komponen anak sebagai prop, komponen anak tersebut akan selalu melihatnya sebagai prop baru setiap kali ada render ulang
+> Jika prop berbeda diantara re-render, memo tidak akan bekerja
+
+SOLUSI = menggunakakn useMemo dan useCallback
+
+useMemo & useCallback
+---
+> kita dapat menggunakna useMemo untuk mengingat nilai apapun yang ingin kita pertahankan diantara render, dan useCallback untuk mengingat function di antara render
+
+> Nilai apapun yang kita masukan kedalam useMemo atau useCallback pada dasarnya akan di simpan dalam memori dan nilai "cache" tersebut akan dikembalikan pada render dimasa yang akan datang selama dependency masih tetap sama
+
+> useMemo dan useCallback juga memiliki dependency array: setiap kali salah satu dependency berubah nilainya tidak akan dikembalikan lagi dari cache melainkan akan dibuat ulang
+
+
+3 penggunanan memo
+
+1. menggunakakan memoizing props untuk menghindari pemborosan render (bersama dengan memo)
+2. menghindari perhitungan ulang yang mahal pada setiap render
+3. memoizing value yang digunakan dalam dependency array ketergantungan hook lain
+
+
