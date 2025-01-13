@@ -1,0 +1,10 @@
+Optimizing Context re-render
+----------------------------
+
+Pengoptimalan context yang sebenarnya bisa sangat membingungkan karena akan sangat bergantung bagaimana kita membangun aplikasi dan bagaimana kita mengatur context dan juga apa yang kita masukan kedalam context
+
+kita hanya perlu melakukan Pengoptimalan context ketika:
+  1. context harus berubah setiap saat
+  2. context mempunyai banyak konsumen
+  3. aplikasi berjalan lambat atau lag
+
