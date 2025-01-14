@@ -1,0 +1,19 @@
+Optimizing bundle size with code spliting
+-----------------------------------------
+
+The bundle and code spliting
+---
+
+> bundle 
+  > bundle adalah file javascript yang berisi seluruh kode aplikasi dan disebut bundle karna tool seperti vite atau webpack telah menggabungkan semua file development ke satu bundle besar
+  > cara kerja : [server] ==[on initial load]==> [clinet / browser]
+
+> bundle size
+  > bundle size adalah kode javascript yang perlu di download oleh setiap pengguna untuk mulai menggunakan aplikasi ini
+  > contoh : jika bundle memiliki ukuran 500kb maka semua byte tersebut harus di unduh bahkan sebelum aplikasi mulai bekerja, tentu saja semakin besar bundle semakin lama waktu yang dibutuhkan untuk di download dan bisa menjadi masalah besar
+  > bundle size mungkin merupakan hal terpenting yang perlu kita optimalkan yang dapat di selesaikan dengan code spliting
+
+> code spliting
+  > code spliting pada dasarnya mengambil bundle dan seperti namanya, membagi menjadi berberapa bagian.
+  > jadi alih alih memiliki satu file javascript yang besar, lebih baik memiliki berberapa file yang lebih kecil yang kemudian dapat di download dari waktu ke waktu saat diperlukan oleh aplikasi
+  > proses code spliting disebut "lazy loading"

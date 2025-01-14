@@ -1,0 +1,64 @@
+{
+  "cities": [
+    {
+      "cityName": "Lisbon",
+      "country": "Portugal",
+      "emoji": "🇵🇹",
+      "date": "2027-10-31T15:59:59.138Z",
+      "notes": "My favorite city so far!",
+      "position": {
+        "lat": 38.727881642324164,
+        "lng": -9.140900099907554
+      },
+      "id": "73930385"
+    },
+    {
+      "cityName": "Madrid",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2027-07-15T08:22:53.976Z",
+      "notes": "",
+      "position": {
+        "lat": 40.46635901755316,
+        "lng": -3.7133789062500004
+      },
+      "id": "17806751"
+    },
+    {
+      "id": "8cdf",
+      "cityName": "Baskil",
+      "country": "Turkiye",
+      "emoji": "🇹🇷",
+      "date": "2025-01-06T10:29:31.245Z",
+      "notes": "",
+      "position": {
+        "lat": "38.66456329715293",
+        "lng": "38.66456329715293"
+      }
+    },
+    {
+      "id": "be43",
+      "cityName": "Prokhladnyy",
+      "country": "Russian Federation (the)",
+      "emoji": "🇷🇺",
+      "date": "2025-01-08T06:26:12.259Z",
+      "notes": "KEREN",
+      "position": {
+        "lat": "43.817202276867285",
+        "lng": "43.817202276867285"
+      }
+    },
+    {
+      "id": "c342",
+      "cityName": "Sehitkamil",
+      "country": "Turkiye",
+      "emoji": "🇹🇷",
+      "date": "2025-01-14T09:43:05.121Z",
+      "notes": "as",
+      "position": {
+        "lat": "37.17319147045788",
+        "lng": "37.17319147045788"
+      }
+    }
+  ]
+}
