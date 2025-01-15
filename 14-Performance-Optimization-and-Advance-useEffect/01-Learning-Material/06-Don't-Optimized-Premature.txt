@@ -1,0 +1,19 @@
+Dont optimize prematurely (Jangan melakukan optimasi sebelum waktunya)
+----------------------------------------------------------------------
+
+Dont:
+  > 🔴 jangan melakukan optimasi sebelum waktunya
+  > 🔴 jangan mengoptimasi apapun jika tidak ada yang perlu di optimalkan
+  > 🔴 Jangan wrap semua komponen ke "memo()"
+  > 🔴 jangan wrap semua function ke "useCallback()"
+  > 🔴 jangan mengopalkan context jika tidak lambat dan tidak kemungkinan besar tidak memiliki banyak konsumen
+  > 🟡 Melakukan semua itu sebenarnya lebih berbahaya daripada keuntungannya, karena kode lebih susah dibaca dan bahkan memperburuk kinerja
+
+Do:
+  > 🟢 Menemukan hambatan kinerja yang sebenarnya menggunakan "profiler tool" dan "visual inception" (laggy UI)
+  > 🟢 Fokus pada masalah kinerja yang sebenarnya dan memperbaikinya
+  > 🟢 "memoizing" expensive re-renders
+  > 🟢 "memoizing" expensive calculation
+  > 🟢 Optimalkan jika context tertentu memiliki banyak konsumen dan jika state diperbaharui setiap saat sehingga menyebabkan masalah yang signifikan
+  > 🟢 "memoize" context value + child component
+  > 🟢 Mengimplementasikan "code spliting" dan "lazy loading" untuk semua route dalam SPA

@@ -1,0 +1,39 @@
+useEffect rules and best practice
+---------------------------------
+
+useEffect dependency array rules
+---
+
+  1. dependency array rules
+    > 🟢 setiap variable state dan prop yang diguanakan di dalam Effect harus disertakan di dalam dependency array
+
+    > 🟢 Semua "reactive value" harus disertakan!. 
+      -> reactive value : nilai reaktif atau nilai apapun seperti state, prop atau context value atau nilai lain yang merujuk pada satu nilai reaktif
+    
+    > 🟢 dependency memilih dirinya sendiri. jangan pernah mengabaikan aturan Eslint
+
+    > 🟢 Jangan mengunakan objek atau array sebagai dependency, karena ketika anda melakukannya, terlihat berfungsi dengan baik tetapi kenyataanya, efeknya akan berjalan ulang pada setiap render
+
+menghapus dependency yang tidak perlu
+---
+> ⚪  Menghapus function dependency
+  -> memindahkan function tersebut ke dalam effect
+  -> jika memerlikan function yang sama di berberapa tempat, kita dapat mencobanya memoize (useCallback)
+  -> jika function tidak menggunakan nilai reactif apapun di kodenya, maka kita dapat memindahkan sepenuhnya dari komponen
+
+> ⚪ Menghapus objek dependency
+  -> kita bisa tidak menyertakan seluruh objek, tetapi hanya properti yang benar2 di perlukan dalam effect (primitiv values)
+  -> jika tidak berhasil untuk situasi spesifik, kita bisa mencoba salah satu strategi (moving atau memoizing objek)
+
+> ⚪ Strategi lainnya
+  -> jika dependency menyertakan berberapa niali reaktif yang terkait satu sama lain, kita bisa menggunakan "useReducer()"
+  -> kita tidak perlu menyertakan setState (useState) atau dispatch (useReducer) karna react menjamin function-function tersebut stabil
+
+Kapan tidak mengguakan effect
+---
+🟡🔴🟢 effect hanya boleh diguanakan sebagai pilihan terakhir ketika tidak ada solusi lain yang benar benar masuk akal
+
+tiga kasus penggunaan terbesar dimana useEffect masih digunakan secara berlebihan yang seharusnay dihindari sebagai pemula:
+  🟠 1. menggunakan "useEffect" untuk merespon event handler seperti click
+  🟠 2. mengambil data (fetching) dari API ketika komponen pertama kali dipasang adalah aplikasi lain yang terlalu sering digunakan daru useEffect
+  🟠 3. menyingkronkan perbuahan state antara satu sama lain
