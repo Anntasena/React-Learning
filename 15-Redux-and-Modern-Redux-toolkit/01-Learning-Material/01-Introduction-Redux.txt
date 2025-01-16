@@ -1,0 +1,25 @@
+Introduction Redux
+------------------
+
+Apa itu Redux?
+---
+> 🔵 Redux adalah 3rd party libary yang dapat kita gunakan untuk mengelola state global dalam web aplikasi
+> 🔵 Redux sebenarnya adalah sebuah libary mandiri yang lengkap yang dapat kita gunakan dengan framework apapun atau bahkan vanilla js
+> 🔵 Semua global state dalam web aplikasi dapat disimpan dalam satu penyimpanan yang dapat diakses secara global yang kemudian dapat kita perbaharui dengan menggunaakn "action" (seperti useReducer)
+> 🔵 Pada kenyataannya, mekanisme dibalik redux dan useReducer sangat mirip  
+> 🔵 Secara konsep redux sangat mirip seperti menggunakan Context API + useReducer
+> 🔵 Ada 2 versi (1) clasic redux, (2) modern redux toolkit
+
+Apakah kita perlu mempelajari redux?
+---
+> 🔘 Secara historis, berberapa tahun yang lalu redux digunakan dihampir semua aplikasi react bahkan untuk semua kebutuhan manajemen state secara global. Tetapi sekarang berubah, karna banyak alternatif. Banyak aplikasi tidak memerlukan lagi redux
+
+> 🔴 Megapa kita perlu belajar redux?
+  1. Redux mempunyai reputasi sebagai bahasa pemrograman yang sangat sulit untuk dipelajari
+  2. Ketika kita bekerja dalam sebuah tim, kita mungkin akan bekerja dangan basis kode yang lebih lama dan pasti akan menemukan redux
+  3. Berberapa aplikai memang membutuhkan sesuatu seperti redux (atau library yang sejenis)
+
+Mekanisme useReducer Hook
+---
+
+
