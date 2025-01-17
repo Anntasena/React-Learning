@@ -1,0 +1,85 @@
+Redux Middleware and Thunks
+---------------------------
+
+Apa itu redux middleware?
+---
+Redux middleware adalah fungsi yang menyediakan tempat di antara dispatching sebuah action dan saat action itu sampai di reducer. Middleware digunakan untuk memperluas kemampuan Redux dengan menambahkan logika khusus atau efek samping, seperti logging, API calls, atau manipulasi data secara asynchronous sebelum mencapai reducer.
+
+---
+
+Mengapa Redux membutuhkan middleware?
+---
+- Redux secara default hanya mendukung flow data yang sinkron. Middleware memungkinkan kita untuk mengelola logika asynchronous, seperti fetching data dari API.
+- Middleware juga mempermudah debugging dengan logging atau memonitor perubahan state secara real-time.
+- Memungkinkan kita untuk memodifikasi atau memfilter action sebelum mencapai reducer.
+
+---
+
+Apa itu Redux Thunk?
+---
+Redux Thunk adalah middleware untuk Redux yang memungkinkan kita menulis action creator yang mengembalikan fungsi, bukan action langsung. Fungsi ini dapat digunakan untuk melakukan logika asynchronous (misalnya, fetch API atau timer) sebelum dispatching action ke reducer.
+
+---
+
+Contoh Penggunaan Redux Thunk:
+---
+1. **Action tanpa Redux Thunk (Sinkron):**
+```javascript
+const increment = () => ({
+  type: 'INCREMENT',
+});
+```
+
+2. **Action dengan Redux Thunk (Asinkron):**
+```javascript
+const fetchData = () => {
+  return async (dispatch) => {
+    dispatch({ type: 'FETCH_START' });
+
+    try {
+      const response = await fetch('https://api.example.com/data');
+      const data = await response.json();
+      dispatch({ type: 'FETCH_SUCCESS', payload: data });
+    } catch (error) {
+      dispatch({ type: 'FETCH_ERROR', error });
+    }
+  };
+};
+```
+
+---
+
+Bagaimana cara menggunakan Redux Middleware dan Thunks?
+---
+1. **Instal Redux Thunk:**
+   ```bash
+   npm install redux-thunk
+   ```
+
+2. **Tambahkan Thunk ke Store:**
+   ```javascript
+   import { createStore, applyMiddleware } from 'redux';
+   import thunk from 'redux-thunk';
+   import rootReducer from './reducers';
+
+   const store = createStore(rootReducer, applyMiddleware(thunk));
+   ```
+
+3. **Dispatch Asynchronous Action:**
+   ```javascript
+   store.dispatch(fetchData());
+   ```
+
+---
+
+Dimana kita perlu memanggil asynchronous API (atau asynchronous operation yang lain) di Redux?
+---
+Asynchronous API calls atau operasi asynchronous lainnya biasanya dilakukan di action creator, dengan bantuan middleware seperti Redux Thunk atau Redux Saga. Dengan cara ini:
+- Kita dapat memisahkan logika asynchronous dari komponen React.
+- State tetap konsisten dan mudah untuk dilacak di seluruh aplikasi.
+
+Contoh:
+- Fetching data saat komponen di-mount.
+- Mengirimkan form data ke server.
+- Melakukan polling data berkala dari server.
+
