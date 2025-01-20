@@ -1,0 +1,16 @@
+Redux toolkit (RTK)
+-------------------
+
+🟢 Apa itu redux toolkit?
+---
+> Redux toolkit adalah cara modern menulis kode redux, dan disarankan oleh tim redux untuk memilih redux toolkit daripada redux classic
+> Redux toolkit merupakan pendekatan yang memaksa semua orang untuk mengunakan praktik terbaik yang telah dipelajari oleh komunitasa selama bertahun tahun
+> Penulisan 100% komatibel satu sama lain. jadi kita bisa menggunakn redux klasik disatu bagian aplikasi dan redux toolkit dibagian lain jika itu yang ingin kita lakukan
+
+🟢 Keunggulan redux toolkit?
+---
+> Keunggulan redux toolkit terbesarnya adalah memungkinkan kita menulis kode lebih sedikit untuk mendapatkan hasil yang sama persis seperti sebelumnya
+> Redux toolkit memberi kita hal hal menarik
+  1. memungkinkan kita menulis kode yang benar2 "mutates" state didalam reducer
+  2. redux toolkit juga secara otomatis membuat "action creators" dari reducer kita
+  3. redux toolkit secara otomatis mengatur middleware thunks dan developer tools

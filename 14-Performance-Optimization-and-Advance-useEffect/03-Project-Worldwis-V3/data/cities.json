@@ -49,15 +49,27 @@
       }
     },
     {
-      "id": "c342",
-      "cityName": "Sehitkamil",
+      "id": "5d0b",
+      "cityName": "Besni",
       "country": "Turkiye",
       "emoji": "🇹🇷",
-      "date": "2025-01-14T09:43:05.121Z",
-      "notes": "as",
+      "date": "2025-01-17T14:44:54.696Z",
+      "notes": "Bagus banget\n",
       "position": {
-        "lat": "37.17319147045788",
-        "lng": "37.17319147045788"
+        "lat": "37.78380825611799",
+        "lng": "37.78380825611799"
+      }
+    },
+    {
+      "id": "316a",
+      "cityName": "Camlihemsin",
+      "country": "Turkiye",
+      "emoji": "🇹🇷",
+      "date": "2025-01-17T14:48:16.832Z",
+      "notes": "",
+      "position": {
+        "lat": "41.01000005441644",
+        "lng": "41.01000005441644"
       }
     }
   ]
