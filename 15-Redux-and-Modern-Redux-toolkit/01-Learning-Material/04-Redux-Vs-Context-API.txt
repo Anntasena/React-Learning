@@ -1,0 +1,51 @@
+Context API vs Redux
+--------------------
+Context API + useReducer = Redux (Context API digabung dengan useReducer mirip seperti redux ("mirip tidak semuanya"))
+
+Perbedaan Context API + useReducer dengan redux
+---
+
+Context API + useReducer
+---
+  > ⚪ Built into react (fitur2 sudah ada dari bawaan react)
+  > ⚪ Saat setup, sangat mudah hanya perlu single context
+  > ⚪ Untuk setiap state tambahan, kita harus melakukan hal yang sama, seperti menyiapkan setup dari awal untuk setiap bagian state baru yang menyebabkan ("provider hell" in app.js)
+  > ⚪ Tidak mempunyai mekanisme oprasi asychronous
+  > ⚪ Pengoptimalan performa sangat sulit dan terkadang menyiksa
+  > ⚪ Hanya menggunakan react DevTools
+  > ⚪
+
+Redux
+---
+  > 🟢 Membutuhkan package tambahan (mengakibatkan ukuran bundle)
+  > 🟢 Membutuhkan lebih banyak usaha saat setup di awal
+  > 🟢 Tetapi setelah setup, cukup mudah untuk menambahkan state "slice"
+  > 🟢 Mendukung support middleware untuk oprasi asychronous
+  > 🟢 Pengoptimalan performa hadir diluar kotak
+  > 🟢 Mempunyai DevTools khusus yang bagus
+
+
+Kapan harus menggunakan Context API atau Redux?
+---
+
+Context API + useReducer
+---
+  > ⚪ Gunakan Context API untuk global state management di aplikasi kecil
+  > ⚪ Ketika kita hanya perlu untuk membagikan "value" yang tidak terlalu sering berubah, [Warna tema, prefrensi bahasa, autentikasi pengguna,...]
+  > ⚪ Ketika kita perlu menyelesaikan masalah prop drilling yang sederhana
+  > ⚪ Ketika kita perlu mengelola state di sub-tree local aplikasi
+  > ⚪
+
+
+Redux
+---
+  > 🟢 Gunakan Redux untuk mengelola state global dalam aplikasi besar
+  > 🟢 Jika kita memiliki banyak state UI yang perlu sering diperbaharui, seperti [shopping cart, current tabs, berberapa fitur filter data,...] cocok menggunakan redux karna redux sudah dioptimalkan
+  > 🟢 Redux sangat cocok digunakan ketika kita memiliki banyak state yang kompleks dengan objek bersarang, karna kita bisa "mutate" state dengan redux toolkit
+  > 🟢
+
+
+
+
+
+
