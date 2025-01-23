@@ -1,0 +1,20 @@
+Profesional file structure
+--------------------------
+
+Ada banyak cara yang berbeda dimana kita dapat menyusun aplikasi react dan profesional dan setiap developer memiliki pendapat yang berbeda tentang hal ini
+
+file structure yang cocok untuk proyek2 besar adalah structure berbasis "feature"
+
+🟢 structure file
+----
+    🟠 > features = folder feature berfungsi sebagai kumpulan file code yang berguna untuk fitur aplikasi, seperti cart, menu, order, user
+
+    🟠 > ui = folder ini berfungsi sebagai reusable UI component seperti button, input, dan lain lain. jadi ini sering kali hanya bersifat presentational dan tidak mengandung side efek
+
+    🟠 > services = folder ini berfungsi sebagai reusable code untuk berinteraksi dengan API
+
+    🟠 > utils = folder ini berfungsi sebagai tempat helper function yang dapat kita gunakan kembali di berberapa tempat, dan yang terpenting helper function tanpa state yang tidak menimbulkan efek samping, contoh, date atau manipulasi angka
+
+    🟠 > context = folder ini berfungsi sebagai
+     
+    🟠 > pages = folder ini berfungsi sebagai
