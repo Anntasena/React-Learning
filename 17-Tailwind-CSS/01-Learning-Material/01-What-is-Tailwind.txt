@@ -1,0 +1,24 @@
+What is Tailwind CSS
+--------------------
+⚪ Tailwind adalah kerangka kerja (framework) CSS yang mengutamakan utilites yang dikemas dengan "utilites classes"  seperti flex, text-center dan rotate-90 diantara banyak kelas lainnya, yang dapat di komposisikan untuk membuat desain apapun secara langsung dalam markup (HTML atau JSX)
+
+⚪ Pendekatan Utilites-first CSS adalah menulis "class kecil" dimana setiap class memiliki satu tujuan, dan kemudian menghubungkan  antar class untuk membangun seluruh komponen dan tata letak
+
+⚪ Di Tailwind, kode sudah dituliskan untuk developer
+
+
+Sisi baik dan buruk Tailwind
+---
+
+🟢 Sisi baik
+  > Kita tidak perlu khawatir tentang penamaan kelas
+  > Kita tidak perlu berpindah pindah file saat menulis markup dan styling
+  > Dapat segera memahami styling dalam proyek apapun yang memakai tailwind, bahkan jika project di tinggalkan dalam waktu lama
+  > Tailwind adalah desain sistem
+  > Menghemat waktu dan pembuatan responsive desain jauh lebih mudah diimplementasikan
+  > Dokementasi dan integrasi VsCode sangat baik
+
+🔴 Sisi buruk
+  > Markup (HTML dan JSX) akan terlihat tidak dapat dibaca, karena menata satu element, kadang kadang membutuhkan 10 bahkan 20 class yang akan terlihat sangat berantakan
+  > Harus mempelajari semua kelas tambahan yang tailwind sediakan, atau setidaknya yang paling kita butuhkan
+  > Kita perlu menginstall dan mengatur tailwind pada setiap project baru yang sedkit memakan waktu
