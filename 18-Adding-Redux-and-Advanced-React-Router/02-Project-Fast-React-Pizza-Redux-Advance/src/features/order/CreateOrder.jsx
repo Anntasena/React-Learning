@@ -49,7 +49,7 @@ function CreateOrder() {
 
       {/* <Form method="POST" action="/order/new"> */}
       <Form method="POST">
-        <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
+        <div className="flex flex-col gap-2 mb-5 sm:flex-row sm:items-center">
           <label className="sm:basis-40">First Name</label>
           <input
             className="input grow"
@@ -60,23 +60,23 @@ function CreateOrder() {
           />
         </div>
 
-        <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
+        <div className="flex flex-col gap-2 mb-5 sm:flex-row sm:items-center">
           <label className="sm:basis-40">Phone number</label>
           <div className="grow">
-            <input className="input w-full" type="tel" name="phone" required />
+            <input className="w-full input" type="tel" name="phone" required />
             {formErrors?.phone && (
-              <p className="mt-2 rounded-md bg-red-100 p-2 text-xs text-red-700">
+              <p className="p-2 mt-2 text-xs text-red-700 bg-red-100 rounded-md">
                 {formErrors.phone}
               </p>
             )}
           </div>
         </div>
 
-        <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
+        <div className="flex flex-col gap-2 mb-5 sm:flex-row sm:items-center">
           <label className="sm:basis-40">Address</label>
           <div className="grow">
             <input
-              className="input w-full"
+              className="w-full input"
               type="text"
               name="address"
               required
@@ -84,9 +84,9 @@ function CreateOrder() {
           </div>
         </div>
 
-        <div className="mb-12 flex items-center gap-5">
+        <div className="flex items-center gap-5 mb-12">
           <input
-            className="h-6 w-6 accent-yellow-400 focus:outline-none focus:ring focus:ring-yellow-400 focus:ring-offset-2"
+            className="w-6 h-6 accent-yellow-400 focus:outline-none focus:ring focus:ring-yellow-400 focus:ring-offset-2"
             type="checkbox"
             name="priority"
             id="priority"
