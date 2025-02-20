@@ -100,6 +100,7 @@ async function createBookings() {
   if (error) console.log(error.message);
 }
 
+//= Components ==========================
 function Uploader() {
   const [isLoading, setIsLoading] = useState(false);
 
