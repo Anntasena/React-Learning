@@ -66,8 +66,6 @@ function CheckinBooking() {
     } else {
       checkin({ bookingId, breakfast: {} });
     }
-
-    // checkin(bookingId);
   }
 
   return (
