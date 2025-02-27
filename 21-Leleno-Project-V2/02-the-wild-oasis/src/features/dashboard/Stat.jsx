@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+//= Styles ==============================
 const StyledStat = styled.div`
   /* Box */
   background-color: var(--color-grey-0);
@@ -47,6 +48,7 @@ const Value = styled.p`
   font-weight: 500;
 `;
 
+//= Component ============================
 function Stat({ icon, title, value, color }) {
   return (
     <StyledStat>

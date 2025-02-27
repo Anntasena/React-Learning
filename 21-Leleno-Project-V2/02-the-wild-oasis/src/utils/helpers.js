@@ -1,9 +1,11 @@
 import { differenceInDays, formatDistance, parseISO } from "date-fns";
 
+//> SUBSTRACT DATES
 // We want to make this function work for both Date objects and strings (which come from Supabase)
 export const subtractDates = (dateStr1, dateStr2) =>
   differenceInDays(parseISO(String(dateStr1)), parseISO(String(dateStr2)));
 
+//> FORMAT DISTANCE FROM NOW
 export const formatDistanceFromNow = (dateStr) =>
   formatDistance(parseISO(dateStr), new Date(), {
     addSuffix: true,
@@ -12,6 +14,7 @@ export const formatDistanceFromNow = (dateStr) =>
     .replace("in", "In");
 
 // Supabase needs an ISO date string. However, that string will be different on every render because the MS or SEC have changed, which isn't good. So we use this trick to remove any time
+//> GET TODAY
 export const getToday = function (options = {}) {
   const today = new Date();
 
@@ -23,6 +26,7 @@ export const getToday = function (options = {}) {
   return today.toISOString();
 };
 
+//> FORMAT CURRENCY
 export const formatCurrency = (value) =>
   new Intl.NumberFormat("en", { style: "currency", currency: "USD" }).format(
     value
