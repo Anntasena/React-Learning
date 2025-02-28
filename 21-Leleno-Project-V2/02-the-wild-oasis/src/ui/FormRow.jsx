@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 //= Styles ==============================
 const StyledFormRow = styled.div`
@@ -28,8 +28,30 @@ const StyledFormRow = styled.div`
   }
 `;
 
+// const variations = {
+//   primary: css`
+//     font-weight: 500;
+//   `,
+//   secondary: css`
+//     font-weight: 500;
+//     color: var(--color-blue-700);
+//   `,
+// };
+// const Label = styled.label`
+//   ${(props) => variations[props.variation]}
+// `;
+
+// Label.defaultProps = {
+//   variation: "primary",
+// };
+
 const Label = styled.label`
   font-weight: 500;
+  ${({ variation }) =>
+    variation === "secondary" &&
+    css`
+      color: var(--color-blue-700);
+    `}
 `;
 
 const Error = styled.span`

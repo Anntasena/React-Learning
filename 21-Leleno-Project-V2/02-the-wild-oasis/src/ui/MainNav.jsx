@@ -5,6 +5,7 @@ import {
   HiOutlineCog6Tooth,
   HiOutlineHome,
   HiOutlineHomeModern,
+  HiOutlineIdentification,
   HiOutlineUsers,
 } from "react-icons/hi2";
 
@@ -61,6 +62,13 @@ function MainNav() {
           <StyledNavLink to="/dashboard">
             <HiOutlineHome />
             <span>Home</span>
+          </StyledNavLink>
+        </li>
+
+        <li>
+          <StyledNavLink to="/reservations">
+            <HiOutlineIdentification />
+            <span>Reservations</span>
           </StyledNavLink>
         </li>
 
