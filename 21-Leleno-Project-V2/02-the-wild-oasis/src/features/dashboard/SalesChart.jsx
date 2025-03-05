@@ -59,7 +59,6 @@ const fakeData = [
 //= Component ============================
 function SalesChart({ bookings, numDays }) {
   const { isDarkMode } = useDarkMode();
-
   const allDates = eachDayOfInterval({
     start: subDays(new Date(), numDays - 1),
     end: new Date(),
