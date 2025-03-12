@@ -1,9 +1,8 @@
-import styled from "styled-components";
-import { useEffect } from "react";
-import { HiMiniHomeModern, HiMiniUser } from "react-icons/hi2";
-import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import toast from "react-hot-toast";
+import { HiMiniHomeModern, HiMiniUser } from "react-icons/hi2";
 
 import Form from "../../ui/Form";
 import FormRow from "../../ui/FormRow";
@@ -14,11 +13,13 @@ import Button from "../../ui/Button";
 import Checkbox from "../../ui/Checkbox";
 import Textarea from "../../ui/Textarea";
 
+import ConfirmBookingAndRegister from "./ConfirmBookingAndRegister";
+
 import { useCabins } from "../cabins/useCabins";
 import { useCreateBooking } from "../bookings/useCreateBooking";
 import { createGuest } from "../../services/apiGuest";
 import { useSettings } from "../settings/useSettings";
-import { COUNTRIES } from "../../lib/countries";
+import Modal from "../../ui/Modal";
 
 //= Styles ==============================
 const TitleForm = styled.div`
@@ -62,7 +63,6 @@ function ReservationForm() {
     register,
     handleSubmit,
     watch,
-    setValue,
     formState: { errors },
   } = useForm({
     defaultValues: {
@@ -76,59 +76,44 @@ function ReservationForm() {
       endDate: "",
       hasBreakfast: false,
       observations: "",
-      cabinPrice: 0,
-      extrasPrice: 0,
-      totalPrice: 0,
       isPaid: false,
     },
   });
 
-  const today = new Date().toISOString().split("T")[0];
+  if (!cabins || cabins.length === 0) return <p>No cabins available.</p>;
+  if (isLoading || isLoadingSettings) return <Spinner />;
 
-  useEffect(() => {
-    if (cabins && cabins.length > 0) {
-      setValue("cabinId", cabins[0].id);
-      setValue("cabinPrice", cabins[0].regularPrice);
-    }
-  }, [cabins, setValue]);
-
-  if (!cabins || cabins.length === 0 || isLoading || isLoadingSettings)
-    return <Spinner />;
-
+  const formData = watch();
   const selectedCabin = cabins.find(
-    (cabin) => cabin.id === Number(watch("cabinId"))
+    (cabin) => cabin.id === Number(formData.cabinId) || null
   );
+
+  console.log(selectedCabin);
+
   if (!selectedCabin) return <Spinner />;
 
-  const breakfastPrice = settings.breakfastPrice;
+  const today = new Date().toISOString().split("T")[0];
 
   const numNights =
-    watch("startDate") && watch("endDate")
+    formData.startDate && formData.endDate
       ? Math.ceil(
-          (new Date(watch("endDate")) - new Date(watch("startDate"))) /
+          (new Date(formData.endDate) - new Date(formData.startDate)) /
             (1000 * 60 * 60 * 24)
         )
       : 0;
 
-  const extrasPrice = watch("hasBreakfast")
-    ? watch("numGuests") * breakfastPrice * numNights
+  const extrasPrice = formData.hasBreakfast
+    ? formData.numGuests * settings.breakfastPrice * numNights
     : 0;
-
   const totalPrice = selectedCabin.regularPrice * numNights + extrasPrice;
 
   const onSubmit = async (data) => {
     try {
-      console.log("Nationality Data:", data.nationality); // Debugging
-
-      // Memisahkan nationality menjadi dua bagian
-      const [nationalityCode, nationalityName] = data.nationality.split(" ");
-
       const guest = await createGuest({
         fullName: data.fullName,
         email: data.email,
         nationalID: data.nationalID,
-        nationality: nationalityName, // Simpan hanya nama negara
-        countryFlag: `https://flagcdn.com/${nationalityCode.toLowerCase()}.svg`, // Gunakan kode negara untuk flag
+        nationality: data.nationality,
       });
 
       await createBooking({
@@ -146,74 +131,53 @@ function ReservationForm() {
         totalPrice,
         isPaid: data.isPaid,
       });
-
-      // Debugging
-      console.log("Nationality Code:", nationalityCode);
-      console.log("Nationality Name:", nationalityName);
-
-      // Reset form
-      setValue("fullName", "");
-      setValue("email", "");
-      setValue("nationalID", "");
-      setValue("nationality", "");
-      setValue("cabinId", cabins[0].id);
-      setValue("numGuests", 1);
-      setValue("startDate", "");
-      setValue("endDate", "");
-      setValue("hasBreakfast", false);
-      setValue("observations", "");
-      setValue("cabinPrice", cabins[0].regularPrice);
-      setValue("extrasPrice", 0);
-      setValue("totalPrice", 0);
-      setValue("isPaid", false);
-
       navigate("/dashboard");
     } catch (error) {
-      console.error("Error creating booking:", error);
-      toast.error("Failed to create booking");
+      toast.error("Failed to create booking.");
     }
   };
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
+    <Form onSubmit={handleSubmit}>
       <TitleForm>
         <HiMiniUser />
         <p as="h2">Guest register</p>
       </TitleForm>
 
       {/* //= FULL NAME */}
-      <FormRow label="Full name" error={errors.fullName?.message}>
+      <FormRow label="Full name">
         <Input
           type="text"
           {...register("fullName", { required: "Full name is required" })}
         />
+        {errors.fullName && <p>{errors.fullName.message}</p>}
       </FormRow>
 
       {/* //= EMAIL */}
-      <FormRow label="Email" error={errors.email?.message}>
+      <FormRow label="Email">
         <Input
           type="email"
           {...register("email", { required: "Email is required" })}
         />
+        {errors.email && <p>{errors.email.message}</p>}
       </FormRow>
 
       {/* //= NATIONAL ID */}
-      <FormRow label="National ID" error={errors.nationalID?.message}>
+      <FormRow label="National ID">
         <Input
           type="text"
           {...register("nationalID", { required: "National ID is required" })}
         />
+        {errors.nationalID && <p>{errors.nationalID.message}</p>}
       </FormRow>
 
       {/* //= NATIONALITY */}
-      <FormRow label="Nationality" error={errors.nationality?.message}>
-        <Select
+      <FormRow label="Nationality">
+        <Input
+          type="text"
           {...register("nationality", { required: "Nationality is required" })}
-          options={COUNTRIES.map((country) => ({
-            value: `${country.value} ${country.title}`,
-            label: country.title,
-          }))}
         />
+        {errors.nationality && <p>{errors.nationality.message}</p>}
       </FormRow>
 
       <TitleForm>
@@ -222,64 +186,51 @@ function ReservationForm() {
       </TitleForm>
 
       {/* //= CABIN ROOM */}
-      <FormRow label="Cabin room" error={errors.cabinId?.message}>
+      <FormRow label="Cabin room">
         <Select
           {...register("cabinId", { required: "Cabin selection is required" })}
-          options={cabins.map((cabin) => ({
-            value: cabin.id,
-            label: cabin.name,
-          }))}
+          options={cabins.map(({ id, name }) => ({ value: id, label: name }))}
         />
+        {errors.cabinId && <p>{errors.cabinId.message}</p>}
       </FormRow>
 
       {/* //= NUM GUEST */}
       <FormRow
-        label={`Persons (${selectedCabin.maxCapacity} person capacity)`}
-        error={errors.numGuests?.message}
+        label={`Persons (${selectedCabin.maxCapacity} max person capacity)`}
       >
         <Input
           type="number"
           {...register("numGuests", {
-            required: "Number of guests is required",
-            min: { value: 1, message: "Minimum 1 guest" },
-            max: {
-              value: selectedCabin.maxCapacity,
-              message: `Maximum ${selectedCabin.maxCapacity} guests`,
-            },
+            required: "Number of guest is required",
+            min: 1,
+            max: selectedCabin.maxCapacity,
           })}
-          onChange={(e) => {
-            const value = parseInt(e.target.value, 10);
-
-            // Clamp the value within the allowed range
-            const clampedValue = Math.min(
-              Math.max(value, 1),
-              selectedCabin.maxCapacity
-            );
-
-            // Update the form state with the clamped value
-            setValue("numGuests", clampedValue);
-          }}
-          min={1}
-          max={selectedCabin.maxCapacity}
         />
+        {errors.numGuests && <p>{errors.numGuests.message}</p>}
       </FormRow>
 
       {/* //= CHECKIN DATES */}
-      <FormRow label="Check-in dates" error={errors.startDate?.message}>
+      <FormRow label="Check-in dates">
         <Input
           type="date"
-          {...register("startDate", { required: "Check-in date is required" })}
-          min={today}
+          {...register("startDate", {
+            required: "Check-in date is required",
+            min: today,
+          })}
         />
+        {errors.startDate && <p>{errors.startDate.message}</p>}
       </FormRow>
 
       {/* //= CHECKOUT DATES */}
-      <FormRow label="Check-out dates" error={errors.endDate?.message}>
+      <FormRow label="Check-out dates">
         <Input
           type="date"
-          {...register("endDate", { required: "Check-out date is required" })}
-          min={watch("startDate") || today}
+          {...register("endDate", {
+            required: "Check-out date is required",
+            min: formData.startDate || today,
+          })}
         />
+        {errors.endDate && <p>{errors.endDate.message}</p>}
       </FormRow>
 
       {/* //= BREAKFAST */}
@@ -294,11 +245,22 @@ function ReservationForm() {
         <Textarea {...register("observations")} />
       </FormRow>
 
-      {/* //= BUTTON */}
+      {/* //= BUTTON MODAL */}
       <Div>
-        <Button type="submit" disabled={isCreateBooking}>
-          Booking & Register
-        </Button>
+        <Modal>
+          <Modal.Open opens="booking-register">
+            <Button type="submit" disabled={isCreateBooking}>
+              Booking & Register
+            </Button>
+          </Modal.Open>
+
+          <Modal.Window name="booking-register">
+            <ConfirmBookingAndRegister
+              onConfirm={handleSubmit(onSubmit)}
+              disabled={isCreateBooking}
+            />
+          </Modal.Window>
+        </Modal>
       </Div>
     </Form>
   );
